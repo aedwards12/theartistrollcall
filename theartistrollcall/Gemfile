@@ -32,10 +32,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'simple_form'
+gem 'foundation-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'haml'
+gem 'faker'
+gem 'font-awesome-sass'
+gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
+  gem 'awesome_print'
+  gem 'table_print'
+  gem 'pry-rails'
+  gem 'factory_girl'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
