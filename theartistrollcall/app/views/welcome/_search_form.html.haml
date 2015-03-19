@@ -1,0 +1,5 @@
+.search-wrapper
+  =form_for search, url: welcome_search_path do |f|
+    =f.input :search, as: :search, label: false, placeholder: "Search"
+    =f.submit
+
