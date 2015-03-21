@@ -13,7 +13,7 @@ class VideoController < ApplicationController
   end
 
   def create
-    @video = Video.new(video_params)
+    @video = Video.new(url: video_params[:url].split('v=').second)
     if @video.save
       redirect_to root_path
     end
