@@ -1,0 +1,15 @@
+.columns.small-12.medium-6
+  .flex-video
+    %iframe{ :width=>"420", :height=>"315", :src=>"//#{video.url}", :frameborder=>"0"}
+  =form_tag  video_tag_path(@video), method: :post  do
+    .small-9.columns
+      =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
+    .small-3.columns
+      =submit_tag  "Tag",  class: 'button postfix'
+  #video_tags.small-12.columns
+    %ul.inline-list
+      - video.dancer_list.each do |tag|
+        %li.label
+          =tag
+
+

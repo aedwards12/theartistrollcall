@@ -1,5 +1,8 @@
-.search-wrapper
-  =form_for search, url: welcome_search_path do |f|
-    =f.input :search, as: :search, label: false, placeholder: "Search"
-    =f.submit
+.large-6.columns
+  .row.collapse.prefix-round
+    =form_tag  welcome_search_path, method: :post, remote: true  do
+      .small-9.columns
+        =text_field_tag :search, nil , placeholder: "Search"
+      .small-3.columns
+        =submit_tag  "Search",  class: 'button postfix'
 

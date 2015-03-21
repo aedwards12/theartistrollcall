@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   post 'welcome/search' => 'welcome#search'
 
+  resources :video do
+    post :tag
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
