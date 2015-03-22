@@ -1,0 +1,3 @@
+%ul.inline-list
+  - twitter_list.each do | twitter_node |
+    =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}

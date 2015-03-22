@@ -8,23 +8,18 @@
       %li{id: "video-count-#{@video.id}"} views
       %li{id: "video-description-#{@video.id}"} description
 
-  =form_tag  video_tag_path(@video), method: :post  do
+  =form_tag  video_tag_path(@video), method: :post, remote: true  do
     .small-9.columns
       =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
     .small-3.columns
       =submit_tag  "Tag",  class: 'button postfix'
 
   #video_tags.small-12.columns
-    %ul.inline-list
-      - video.dancer_list.each do |tag|
-        %li.label
-          =tag
-  - if @twitter
+    =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
+
+  - if @twitter_list
     #twitter_list.small-12.columns
-      %ul.inline-list
-        %li.label
-          =@twitter.screen_name
-          = image_tag @twitter.profile_image_url.to_s
+      =render partial: "shared/twitter_list", locals: {twitter_list: @twitter_list}
 
 
 :javascript

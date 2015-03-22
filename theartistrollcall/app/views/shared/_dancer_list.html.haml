@@ -1,0 +1,3 @@
+%ul.inline-list
+  - dancer_list.each do |dancer|
+    =render partial: "shared/dancer_tag", locals: {dancer: dancer}

@@ -1,16 +1,18 @@
 class VideoController < ApplicationController
   before_action :load_video, except: [:create]
+  before_action :set_twitter_client, only: [:tag]
 
   def tag
+    @twitter_list = []
     dancer_list = params[:dancer_tags]
-
-    twitter_client
-   @twitter = @client.user("anthonyedwardsj")
-
-   binding.pry
-
     @video.dancer_list.add(dancer_list, parse: true)
-    @video.save
+    if @video.save
+      @video.dancer_list.to_a.each do | dancer |
+        if dancer[0] == "@"
+           @twitter_list << @client.user(dancer.downcase.delete('@'))
+        end
+      end
+    end
     redirect_to :back
   end
 
@@ -50,5 +52,9 @@ class VideoController < ApplicationController
 
   def video_params
     params.require(:video).permit(:url, tag_list: [])
+  end
+
+  def set_twitter_client
+    twitter_client
   end
 end
