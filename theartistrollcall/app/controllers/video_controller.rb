@@ -7,13 +7,13 @@ class VideoController < ApplicationController
     dancer_list = params[:dancer_tags]
     @video.dancer_list.add(dancer_list, parse: true)
     if @video.save
-      @video.dancer_list.to_a.each do | dancer |
-        if dancer[0] == "@"
-           @twitter_list << @client.user(dancer.downcase.delete('@'))
+        dancer_list.split(",").each do | dancer |
+        if dancer.strip[0] == "@"
+           @twitter_list << @client.user(dancer.strip.downcase.delete('@'))
         end
       end
     end
-    redirect_to :back
+    @twitter_list
   end
 
   def new
