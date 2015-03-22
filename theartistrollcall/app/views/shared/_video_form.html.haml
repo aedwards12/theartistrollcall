@@ -1,15 +1,42 @@
 .columns.small-12.medium-6
-  .flex-video
+  .flex-video{id: "flex-video-#{@video.id}"}
     %iframe{ :width=>"420", :height=>"315", :src=>"http://www.youtube.com/embed/#{video.url}", :frameborder=>"0"}
+
+  .columns.small-12.video-stats
+    %ul.inline-list
+      %li{id: "video-author-#{@video.id}"} author
+      %li{id: "video-count-#{@video.id}"} views
+      %li{id: "video-description-#{@video.id}"} description
+
   =form_tag  video_tag_path(@video), method: :post  do
     .small-9.columns
       =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
     .small-3.columns
       =submit_tag  "Tag",  class: 'button postfix'
+
   #video_tags.small-12.columns
     %ul.inline-list
       - video.dancer_list.each do |tag|
         %li.label
           =tag
+
+:javascript
+    $(document).ready( function() {
+      $.getJSON(
+        "https://gdata.youtube.com/feeds/api/videos/#{@video.url}?v=2&alt=json", function(data){
+          var author = data.entry.author[0].name.$t;
+          var description = data.entry.media$group.media$description.$t;
+          var viewCount = data.entry.yt$statistics.viewCount;
+          $("#video-count-#{@video.id}").text("author " + author);
+          $("#video-author-#{@video.id}").text("views " + viewCount );
+          $("#video-description-#{@video.id}").text("description " +  description);
+        }
+      )
+      .done(function(data) {
+
+      }).error(function(data){
+        console.log("error");
+      });
+    } );
 
 
