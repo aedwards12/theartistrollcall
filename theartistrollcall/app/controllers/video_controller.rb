@@ -3,6 +3,12 @@ class VideoController < ApplicationController
 
   def tag
     dancer_list = params[:dancer_tags]
+
+    twitter_client
+   @twitter = @client.user("anthonyedwardsj")
+
+   binding.pry
+
     @video.dancer_list.add(dancer_list, parse: true)
     @video.save
     redirect_to :back

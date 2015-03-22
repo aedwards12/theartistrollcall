@@ -19,6 +19,13 @@
       - video.dancer_list.each do |tag|
         %li.label
           =tag
+  - if @twitter
+    #twitter_list.small-12.columns
+      %ul.inline-list
+        %li.label
+          =@twitter.screen_name
+          = image_tag @twitter.profile_image_url.to_s
+
 
 :javascript
     $(document).ready( function() {
