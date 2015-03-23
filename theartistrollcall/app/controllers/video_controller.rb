@@ -25,15 +25,10 @@ class VideoController < ApplicationController
     if @video.save
       redirect_to root_path
     end
-
   end
 
   def edit
     load_video
-  end
-
-  def search
-
   end
 
   private

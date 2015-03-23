@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  post 'welcome/search' => 'welcome#search'
-
+  get 'welcome/search' => 'welcome#search'
+  get 'twitter_callback_url' => 'welcome#twitter_callback_url'
   resources :video do
     post :tag
   end

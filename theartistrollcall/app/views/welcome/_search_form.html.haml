@@ -6,3 +6,21 @@
       .small-3.columns
         =submit_tag  "Search",  class: 'button postfix'
 
+:javascript
+  $(document).ready(function() {
+    $('#search').select2({
+          minimumInputLength: 1,
+          placeholder: "Select Spec Section",
+          allowClear: true,
+          ajax: {
+            url: "#{welcome_search_path}",
+            dataType: 'json',
+            quietMillis: 700,
+            data: function(term) { return {q: term}; },
+            results: function(data, page, qry) {
+              return data;
+            }
+          }
+      });
+    });
+

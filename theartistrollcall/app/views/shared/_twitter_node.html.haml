@@ -1,3 +1,7 @@
 %li.label
   =twitter_node.screen_name
   .th= image_tag twitter_node.profile_image_url.to_s
+%a.twitter-follow-button{ href: "https://twitter.com/#{twitter_node.screen_name}", data: {"show-count" => "false", lang: "en"}}
+  Follow @
+  ="#{twitter_node.screen_name}"
+
