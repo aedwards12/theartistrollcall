@@ -23,7 +23,7 @@ class WelcomeController < ApplicationController
     data = JSON.parse(response.body)
     data_array = []
     data.count.times do |x|
-      data_array << {id: x, text: data[x]["screen_name"]}
+      data_array << {"id"=> x, "text"=> data[x]["screen_name"]}
     end
     respond_to do |format|
       format.json { render json: data_array }

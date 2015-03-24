@@ -9,7 +9,15 @@ class VideoController < ApplicationController
     if @video.save
         dancer_list.split(",").each do | dancer |
         if dancer.strip[0] == "@"
-           @twitter_list << @client.user(dancer.strip.downcase.delete('@'))
+            user = @client.user(dancer.strip.downcase.delete('@'))
+           @twitter_list << user
+            artist = Artist.create(
+                                 twitter_screen_name: user.screen_name,
+                                 twitter_img_url: user.profile_image_url.to_s,
+                                 twitter_id: user.id,
+                                 name: user.name
+                                )
+           ArtistVideo.create(artist: artist, video: @video, artist_role: params[:role] )
         end
       end
     end

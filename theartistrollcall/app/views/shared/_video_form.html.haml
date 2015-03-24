@@ -8,7 +8,7 @@
       %li{id: "video-count-#{@video.id}"} views
       %li{id: "video-description-#{@video.id}"} description
 
-  =form_tag  video_tag_path(@video), method: :post, remote: true  do
+  =form_tag  video_tag_path(@video, role: "dancer"), method: :post, remote: true  do
     .small-9.columns
       =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
     .small-3.columns

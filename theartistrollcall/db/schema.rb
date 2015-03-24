@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319223801) do
+ActiveRecord::Schema.define(version: 20150324031604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_videos", force: :cascade do |t|
+    t.integer  "artist_id"
+    t.integer  "video_id"
+    t.string   "artist_role"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "twitter_screen_name"
+    t.string   "twitter_img_url"
+    t.string   "twitter_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "name"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
