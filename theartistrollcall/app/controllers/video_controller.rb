@@ -11,13 +11,15 @@ class VideoController < ApplicationController
         if dancer.strip[0] == "@"
             user = @client.user(dancer.strip.downcase.delete('@'))
            @twitter_list << user
+
+           binding.pry
             artist = Artist.create(
                                  twitter_screen_name: user.screen_name,
                                  twitter_img_url: user.profile_image_url.to_s,
-                                 twitter_id: user.id,
+                                 # twitter_id: user.id,
                                  name: user.name
                                 )
-           ArtistVideo.create(artist: artist, video: @video, artist_role: params[:role] )
+           ArtistVideo.create(artist: artist, video: @video, artist_role: params[:artist_role] )
         end
       end
     end
