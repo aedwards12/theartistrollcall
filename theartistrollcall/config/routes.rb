@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     post :tag
   end
 
+  resources :artists
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

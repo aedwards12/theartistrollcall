@@ -1,0 +1,25 @@
+.row
+  =image_tag(@artist.twitter_img_url)
+  %h6= @artist.twitter_screen_name
+  %a.twitter-follow-button{ href: "https://twitter.com/#{@artist.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
+    Follow @
+    ="#{@artist.twitter_screen_name}"
+
+.row
+  %h5 Videos
+  - @videos.each do |vid|
+    .columns.small-3
+      .flex-video{id: "flex-video-#{vid.id}"}
+        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+
+.row
+  .columns.small-12
+    %h5 Recommended Artists
+    - @recommended_artists.each do |art|
+      %li.label
+        =art.twitter_screen_name
+        .th= image_tag art.twitter_img_url.to_s
+      %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
+        Follow @
+        ="#{art.twitter_screen_name}"
+      =link_to "Show",  artist_path(art.id), id: "show-artist-#{art.id}"

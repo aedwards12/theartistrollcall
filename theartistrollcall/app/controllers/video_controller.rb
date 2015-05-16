@@ -11,15 +11,13 @@ class VideoController < ApplicationController
         if dancer.strip[0] == "@"
             user = @client.user(dancer.strip.downcase.delete('@'))
            @twitter_list << user
-
-           binding.pry
-            artist = Artist.create(
+            @artist = Artist.where(
                                  twitter_screen_name: user.screen_name,
                                  twitter_img_url: user.profile_image_url.to_s,
-                                 # twitter_id: user.id,
+                                 twitter_id: user.id,
                                  name: user.name
-                                )
-           ArtistVideo.create(artist: artist, video: @video, artist_role: params[:artist_role] )
+                                ).first_or_create
+           ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
         end
       end
     end
@@ -33,7 +31,7 @@ class VideoController < ApplicationController
   def create
     @video = Video.new(url: video_params[:url].split('v=').second)
     if @video.save
-      redirect_to root_path
+      redirect_to video_path(@video)
     end
   end
 
