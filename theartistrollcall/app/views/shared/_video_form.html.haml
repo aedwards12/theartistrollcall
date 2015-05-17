@@ -27,15 +27,18 @@
             =submit_tag  "Tag",  class: 'button postfix'
 
   #video_tags.small-12.columns
+    Tags
     =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
 
-  - if @twitter_list
-    #twitter_list.small-12.columns
-      =render partial: "shared/twitter_list", locals: {twitter_list: @twitter_list}
+
+  #twitter_list.small-12.columns
+    Artists
+    =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer}
 
 
 :javascript
     $(document).ready( function() {
+      debugger;
       $.getJSON(
         "https://gdata.youtube.com/feeds/api/videos/#{@video.url}?v=2&alt=json", function(data){
           var author = data.entry.author[0].name.$t;

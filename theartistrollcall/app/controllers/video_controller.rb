@@ -1,16 +1,14 @@
 class VideoController < ApplicationController
-  before_action :load_video, except: [:create]
+  before_action :load_video, except: [:create, :index]
   before_action :set_twitter_client, only: [:tag]
 
   def tag
-    @twitter_list = []
     dancer_list = params[:dancer_tags]
     @video.dancer_list.add(dancer_list, parse: true)
     if @video.save
         dancer_list.split(",").each do | dancer |
         if dancer.strip[0] == "@"
             user = @client.user(dancer.strip.downcase.delete('@'))
-           @twitter_list << user
             @artist = Artist.where(
                                  twitter_screen_name: user.screen_name,
                                  twitter_img_url: user.profile_image_url.to_s,
@@ -18,10 +16,16 @@ class VideoController < ApplicationController
                                  name: user.name
                                 ).first_or_create
            ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
+
         end
       end
     end
-    @twitter_list
+
+    choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
+    @choreographer = Artist.find(choreographer.artist_id)
+
+    dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
+    @dancers = Artist.find(dancers.pluck(:artist_id))
   end
 
   def new
@@ -30,6 +34,8 @@ class VideoController < ApplicationController
 
   def create
     @video = Video.new(url: video_params[:url].split('v=').second)
+    @new_video = Video.new
+
     if @video.save
       redirect_to video_path(@video)
     end
@@ -39,6 +45,10 @@ class VideoController < ApplicationController
     load_video
   end
 
+  def index
+    all_videos
+  end
+
   private
 
   def new_video
@@ -46,7 +56,14 @@ class VideoController < ApplicationController
   end
 
   def load_video
-    @video = Video.find(params[:video_id])
+    @video = Video.find(params[:video_id] || params[:id])
+    # @twitter_list = ArtistVideo.where(video_id: @video.id).group(:id, :artist_role)
+    choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
+    if choreographer
+      @choreographer = Artist.find(choreographer.artist_id)
+    end
+    dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
+    @dancers = Artist.find(dancers.pluck(:artist_id))
   end
 
   def all_videos

@@ -11,6 +11,7 @@
     .columns.small-3
       .flex-video{id: "flex-video-#{vid.id}"}
         %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+      = link_to 'View', video_path(vid)
 
 .row
   .columns.small-12

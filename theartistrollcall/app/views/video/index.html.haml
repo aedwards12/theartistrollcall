@@ -1,14 +1,5 @@
-/ =render partial: "search_form"
 .row
   =render partial: "shared/new_video_form"
-.row
-  %p something that says tag dancers and follow there videos
-.row
-  %h3 Featured Videos
-
-.row
-  %h3 Newest Videos
-
 .row
   - @videos.each do |vid|
     .columns.small-3.left

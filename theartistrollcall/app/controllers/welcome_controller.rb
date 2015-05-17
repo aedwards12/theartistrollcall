@@ -1,10 +1,8 @@
 require 'json'
 class WelcomeController < ApplicationController
   def index
-    @video = Video.first
-    @twitter_list = @video.artists || []
-    @new_video = Video.new
-
+    @videos = Video.all
+    # @twitter_list = @video.artists || []
 
      # twitter_client
     # if @video.dancer_list.size>=1

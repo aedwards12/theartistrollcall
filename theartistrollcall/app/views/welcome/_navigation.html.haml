@@ -1,0 +1,16 @@
+%nav.nav-css.top-bar{data: {topbar: ''}, role: 'navigation'}
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to 'The Artist Roll Call', root_path
+    %li.toggle-topbar.menu-icon
+      = link_to 'menu', '#'
+
+  %section.top-bar-section
+    %ul.right
+      %li.active
+        = link_to 'Videos', video_index_path
+    %ul.left
+      / %li.has-form
+      /   .row.collapse
+      /     =render partial: "shared/new_video_form"
