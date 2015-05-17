@@ -17,4 +17,20 @@
   margin-bottom: 10px;
 }
 
+h1,h2,h3,h4,h5,h4{
+  color: rgb(216,216,216);
+}
 
+body{
+  color: rgb(216,216,216);
+  background-image: url("http://i1372.photobucket.com/albums/ag340/anthonyedwardsjr/A-Time-To-Dance-Floor-large-shade_zpsywoy42jz.jpg");
+  background-repeat: none;
+  background-size: cover;
+  background-position: 50%, 70%;
+  background-attachment: fixed;
+  width: 100% !important;
+}
+
+.transparent-box{
+  background-color:  rgba(0, 0, 0, 0.6);
+}

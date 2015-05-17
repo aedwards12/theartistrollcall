@@ -2,19 +2,10 @@ require 'json'
 class WelcomeController < ApplicationController
   def index
     @videos = Video.all
-    # @twitter_list = @video.artists || []
-
-     # twitter_client
-    # if @video.dancer_list.size>=1
-    #   @video.dancer_list.to_a.each do | dancer |
-    #     if dancer[0] == "@"
-    #        @twitter_list << @client.user(dancer.delete('@'))
-    #     end
-    #   end
-    #  end
+    @videos.each(&:set_yt_data)
   end
 
-   def search
+  def search
     # Exchange our oauth_token and oauth_token secret for the AccessToken instance.
     # access_token = prepare_access_token(ENV["ACCESS_TOKEN"], ENV["ACCESS_TOKEN_SECRET"])
 

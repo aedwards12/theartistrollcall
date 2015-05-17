@@ -22,10 +22,14 @@ class VideoController < ApplicationController
     end
 
     choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
-    @choreographer = Artist.find(choreographer.artist_id)
-
+    if choreographer
+      @choreographer = Artist.find(choreographer.artist_id)
+    end
     dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
     @dancers = Artist.find(dancers.pluck(:artist_id))
+    respond_to do |format|
+      format.js {render 'tag'}
+    end
   end
 
   def new
@@ -47,6 +51,7 @@ class VideoController < ApplicationController
 
   def index
     all_videos
+    @videos.each(&:set_yt_data)
   end
 
   private
@@ -57,12 +62,7 @@ class VideoController < ApplicationController
 
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
-    yt_video = Yt::Video.new url: "https://www.youtube.com/watch?v=#{@video.url}"
-    @video.yt_count = yt_video.view_count
-    @video.yt_title = yt_video.title
-    @video.yt_description = yt_video.description
-    @video.yt_author = yt_video.snippet.data['channelTitle']
-    @video.yt_pub_date = yt_video.snippet.data["publishedAt"]
+    @video.set_yt_data
     choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
     if choreographer
       @choreographer = Artist.find(choreographer.artist_id)

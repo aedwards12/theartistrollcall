@@ -6,7 +6,8 @@
     ="#{@artist.twitter_screen_name}"
 
 .row
-  %h5 Videos
+  %h5
+    = "#{@artist.twitter_screen_name}'s choreography"
   - @videos.each do |vid|
     .columns.small-3
       .flex-video{id: "flex-video-#{vid.id}"}

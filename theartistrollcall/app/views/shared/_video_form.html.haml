@@ -1,45 +1,45 @@
 .columns.small-12.medium-9
-  .columns.small-12.medium-11.small-centered
-    .flex-video{id: "flex-video-#{@video.id}"}
-      %iframe{ :width=>"420", :height=>"315", :src=>"http://www.youtube.com/embed/#{video.url}", :frameborder=>"0"}
-
-    .columns.small-12.video-stats
-      %ul.inline-list
-        %li{id: "video-author-#{@video.id}"}
-          author:
-          = @video.yt_author
-        %li{id: "video-count-#{@video.id}"}
-          views:
-          = number_to_human(@video.yt_count)
-        %li
-          published:
-          = "#{time_ago_in_words(@video.yt_pub_date)} ago"
-        %li{id: "video-description-#{@video.id}"}
-          description:
-          = @video.yt_description
-
   .row
-    .column.small-12.tag-form
-      =form_tag  video_tag_path(@video), method: :post, remote: true  do
-        .row
-          .column.small-4
-            =radio_button_tag(:artist_role, "dancer", required: true)
-            =label_tag(:artist_role, "Dancer")
-          .column.small-4
-            =radio_button_tag(:artist_role, "choreographer")
-            =label_tag(:artist_role, "Choreographer")
-          .column.small-4
-            =radio_button_tag(:artist_role, "assist_choreographer")
-            =label_tag(:artist_role, "Asst Choreographer")
-        .row
-          .small-9.columns
-            =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
-          .small-3.columns
-            =submit_tag  "Tag",  class: 'button postfix'
+    .columns.small-12.medium-11.small-centered
+      .flex-video{id: "flex-video-#{@video.id}"}
+        %iframe{ :width=>"420", :height=>"315", :src=>"http://www.youtube.com/embed/#{video.url}", :frameborder=>"0"}
 
-  #video_tags.small-12.columns
-    Tags
-    =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
+      .columns.small-12.video-stats
+        %ul.inline-list
+          %li{id: "video-author-#{@video.id}"}
+            Channel:
+            = @video.yt_author
+          %li{id: "video-count-#{@video.id}"}
+            views:
+            = number_to_human(@video.yt_count)
+          %li
+            published:
+            = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+          %li{id: "video-description-#{@video.id}"}
+            description:
+            = @video.yt_description
+        .row
+          .column.small-12.tag-form
+            =form_tag video_tag_path(@video), method: :post, remote: true  do
+              .row
+                .column.small-4
+                  =radio_button_tag(:artist_role, "dancer", required: true)
+                  =label_tag(:artist_role, "Dancer")
+                .column.small-4
+                  =radio_button_tag(:artist_role, "choreographer")
+                  =label_tag(:artist_role, "Choreographer")
+                .column.small-4
+                  =radio_button_tag(:artist_role, "assist_choreographer")
+                  =label_tag(:artist_role, "Asst Choreographer")
+              .row
+                .small-9.columns
+                  =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
+                .small-3.columns
+                  =submit_tag  "Suggest",  class: 'button postfix'
+        .row
+          #video_tags.small-12.columns
+            Tags
+            =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
 
 .columns.small-12.medium-3
   #twitter_list.small-12.columns

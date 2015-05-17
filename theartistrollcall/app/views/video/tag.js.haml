@@ -1,2 +1,3 @@
-$("#dancer_tags").val(" ")
-$("#twitter_list .inline-list").append(" #{ j (render partial: 'shared/twitter_list', locals: {twitter_list: @twitter_list})}")
+$("#dancer_tags").val(" ");
+debugger;
+$("#twitter_list).replaceWith(" #{ j (render partial: 'shared/twitter_list', locals: {twitter_list: @dancers, choreographer: @choreographer})}");
