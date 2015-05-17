@@ -5,9 +5,19 @@
 
     .columns.small-12.video-stats
       %ul.inline-list
-        %li{id: "video-author-#{@video.id}"} author
-        %li{id: "video-count-#{@video.id}"} views
-        %li{id: "video-description-#{@video.id}"} description
+        %li{id: "video-author-#{@video.id}"}
+          author:
+          = @video.yt_author
+        %li{id: "video-count-#{@video.id}"}
+          views:
+          = number_to_human(@video.yt_count)
+        %li
+          published:
+          = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+        %li{id: "video-description-#{@video.id}"}
+          description:
+          = @video.yt_description
+
   .row
     .column.small-12.tag-form
       =form_tag  video_tag_path(@video), method: :post, remote: true  do
@@ -35,23 +45,23 @@
   #twitter_list.small-12.columns
     =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer}
 
-:javascript
-    $(document).ready( function() {
-      $.getJSON(
-        "https://gdata.youtube.com/feeds/api/videos/#{@video.url}?v=2&alt=json", function(data){
-          var author = data.entry.author[0].name.$t;
-          var description = data.entry.media$group.media$description.$t;
-          var viewCount = data.entry.yt$statistics.viewCount;
-          $("#video-count-#{@video.id}").text("author " + author);
-          $("#video-author-#{@video.id}").text("views " + viewCount );
-          $("#video-description-#{@video.id}").text("description " +  description);
-        }
-      )
-      .done(function(data) {
+/ :javascript
+/     $(document).ready( function() {
+/       $.getJSON(
+/         "https://gdata.youtube.com/feeds/api/videos/#{@video.url}?v=2&alt=json", function(data){
+/           var author = data.entry.author[0].name.$t;
+/           var description = data.entry.media$group.media$description.$t;
+/           var viewCount = data.entry.yt$statistics.viewCount;
+/           $("#video-count-#{@video.id}").text("author " + author);
+/           $("#video-author-#{@video.id}").text("views " + viewCount );
+/           $("#video-description-#{@video.id}").text("description " +  description);
+/         }
+/       )
+/       .done(function(data) {
 
-      }).error(function(data){
-        console.log("error");
-      });
-    } );
+/       }).error(function(data){
+/         console.log("error");
+/       });
+/     } );
 
 

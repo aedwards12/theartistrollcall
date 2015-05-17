@@ -5,4 +5,6 @@ class Video < ActiveRecord::Base
   has_many :artist_videos
   has_many :artists, through: :artist_videos
 
+  attr_accessor :yt_count, :yt_title, :yt_description, :yt_author, :yt_pub_date
+
 end

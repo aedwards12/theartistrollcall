@@ -57,7 +57,12 @@ class VideoController < ApplicationController
 
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
-    # @twitter_list = ArtistVideo.where(video_id: @video.id).group(:id, :artist_role)
+    yt_video = Yt::Video.new url: "https://www.youtube.com/watch?v=#{@video.url}"
+    @video.yt_count = yt_video.view_count
+    @video.yt_title = yt_video.title
+    @video.yt_description = yt_video.description
+    @video.yt_author = yt_video.snippet.data['channelTitle']
+    @video.yt_pub_date = yt_video.snippet.data["publishedAt"]
     choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
     if choreographer
       @choreographer = Artist.find(choreographer.artist_id)
