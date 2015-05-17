@@ -19,7 +19,8 @@
             },
             results: function(data) {
               return {results: data};
-            }
+            },
+            cache: true
           }
       }).on("select2-selecting", function(e) {
         window.location = "/artists/" + e.val;

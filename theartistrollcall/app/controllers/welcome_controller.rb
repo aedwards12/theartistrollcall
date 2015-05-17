@@ -31,7 +31,6 @@ class WelcomeController < ApplicationController
     # binding.pry
 
     @artists = Artist.where('twitter_screen_name ILIKE ?', "%#{params["q"]}%" ).select(['id, twitter_screen_name As text'])
-    logger.ap @artists
     respond_to do |format|
       format.json { render json: @artists}
     end

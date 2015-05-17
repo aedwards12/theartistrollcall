@@ -16,11 +16,6 @@
 .row
   .columns.small-12
     %h5 Recommended Artists
-    - @recommended_artists.each do |art|
-      %li.label
-        =art.twitter_screen_name
-        .th= image_tag art.twitter_img_url.to_s
-      %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
-        Follow @
-        ="#{art.twitter_screen_name}"
-      =link_to "Show",  artist_path(art.id), id: "show-artist-#{art.id}"
+    %ul
+      - @recommended_artists.each do |art|
+        =render partial: "shared/twitter_node", locals: {twitter_node: art}

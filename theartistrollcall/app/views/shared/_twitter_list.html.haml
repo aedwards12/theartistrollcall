@@ -1,13 +1,9 @@
-%ul.inline-list
+%ul
   - if choreographer
-    .row
-      .columns.small-8
-        Choreographer
-        =render partial: "shared/twitter_node", locals: {twitter_node: choreographer}
-
+    %h4 Choreographer
+    =render partial: "shared/twitter_node", locals: {twitter_node: choreographer}
+  %li.divider
   - if twitter_list
+    %h4 Dancers
     - twitter_list.each do | twitter_node |
-      .row
-        .columns.small-8
-          Dancers
-          =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}
+      =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}
