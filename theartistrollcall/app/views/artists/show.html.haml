@@ -1,5 +1,6 @@
 .row
-  =image_tag(@artist.twitter_img_url)
+  / - binding.pry
+  =image_tag( @artist.twitter_img_url.split('normal').join('200x200'))
   %h6= @artist.twitter_screen_name
   %a.twitter-follow-button{ href: "https://twitter.com/#{@artist.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
     Follow @

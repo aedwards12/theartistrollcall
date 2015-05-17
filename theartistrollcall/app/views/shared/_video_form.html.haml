@@ -1,13 +1,13 @@
 .columns.small-12.medium-9
-  .columns.small-12.medium-11
+  .columns.small-12.medium-11.small-centered
     .flex-video{id: "flex-video-#{@video.id}"}
       %iframe{ :width=>"420", :height=>"315", :src=>"http://www.youtube.com/embed/#{video.url}", :frameborder=>"0"}
 
-  .columns.small-12.video-stats
-    %ul.inline-list
-      %li{id: "video-author-#{@video.id}"} author
-      %li{id: "video-count-#{@video.id}"} views
-      %li{id: "video-description-#{@video.id}"} description
+    .columns.small-12.video-stats
+      %ul.inline-list
+        %li{id: "video-author-#{@video.id}"} author
+        %li{id: "video-count-#{@video.id}"} views
+        %li{id: "video-description-#{@video.id}"} description
   .row
     .column.small-12.tag-form
       =form_tag  video_tag_path(@video), method: :post, remote: true  do
