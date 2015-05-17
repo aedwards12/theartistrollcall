@@ -1,26 +1,28 @@
-.large-6.columns
+.small-12.columns
   .row.collapse.prefix-round
-    =form_tag  welcome_search_path, method: :post, remote: true  do
+    =form_tag  welcome_search_path, method: :post do
       .small-9.columns
-        =text_field_tag :search, nil , placeholder: "Search"
-      .small-3.columns
-        =submit_tag  "Search",  class: 'button postfix'
+        =text_field_tag :search, nil
 
 :javascript
   $(document).ready(function() {
     $('#search').select2({
           minimumInputLength: 1,
-          placeholder: "Seach twitter  users",
+          placeholder: "Search Artists",
           allowClear: true,
           ajax: {
             url: "#{welcome_search_path}",
             dataType: 'json',
             quietMillis: 700,
-            data: function(term) { return {q: term}; },
-            results: function(data, page, qry) {
-              return data;
+            data: function(term) {
+              return {q: term};
+            },
+            results: function(data) {
+              return {results: data};
             }
           }
+      }).on("select2-selecting", function(e) {
+        window.location = "/artists/" + e.val;
       });
     });
 

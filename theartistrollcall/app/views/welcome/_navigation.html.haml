@@ -11,6 +11,6 @@
       %li.active
         = link_to 'Videos', video_index_path
     %ul.left
-      / %li.has-form
-      /   .row.collapse
-      /     =render partial: "shared/new_video_form"
+      %li.has-form
+        .row.collapse
+          =render partial: "welcome/search_form"
