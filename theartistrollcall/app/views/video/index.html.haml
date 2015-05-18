@@ -1,6 +1,4 @@
 .row
-  =render partial: "shared/new_video_form"
-.row
   - @videos.each do |vid|
     .columns.small-3.left
       .flex-video{id: "flex-video-#{vid.id}"}

@@ -1,5 +1,5 @@
 .columns.small-12.medium-9
-  .row
+  .row.transparent-box
     .columns.small-12.medium-11.small-centered
       .flex-video{id: "flex-video-#{@video.id}"}
         %iframe{ :width=>"420", :height=>"315", :src=>"http://www.youtube.com/embed/#{video.url}", :frameborder=>"0"}
@@ -10,13 +10,13 @@
             Channel:
             = @video.yt_author
           %li{id: "video-count-#{@video.id}"}
-            views:
+            Views:
             = number_to_human(@video.yt_count)
           %li
-            published:
+            Published By:
             = "#{time_ago_in_words(@video.yt_pub_date)} ago"
           %li{id: "video-description-#{@video.id}"}
-            description:
+            Description:
             = @video.yt_description
         .row
           .column.small-12.tag-form

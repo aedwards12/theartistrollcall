@@ -10,6 +10,8 @@
     %ul.right
       %li.active
         = link_to 'Videos', video_index_path
+      %li
+        = submit_tag "Add Video", :type => 'button', :onclick => "$('#ytModal').foundation('reveal', 'open')", class: 'button'
     %ul.left
       %li.has-form
         .row.collapse

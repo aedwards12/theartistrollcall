@@ -9,7 +9,7 @@
   %h5
     = "#{@artist.twitter_screen_name}'s choreography"
   - @videos.each do |vid|
-    .columns.small-3
+    .columns.small-3.left
       .flex-video{id: "flex-video-#{vid.id}"}
         %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
       = link_to 'View', video_path(vid)
