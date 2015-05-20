@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+    font-family: 'Simplifica';
+    src: url("SIMPLIFICA_Typeface.ttf");
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+*{
+  font-family: 'Simplifica', serif;
+  font-size: 1.2em;
+}
 
 .search-wrapper{
   width: 200px;
@@ -22,6 +37,7 @@ h1,h2,h3,h4,h5,h4{
 }
 
 body{
+  font-family: 'Simplifica', serif;
   color: rgb(216,216,216);
   background-image: url("http://i1372.photobucket.com/albums/ag340/anthonyedwardsjr/A-Time-To-Dance-Floor-large-shade_zpsywoy42jz.jpg");
   background-repeat: none;
