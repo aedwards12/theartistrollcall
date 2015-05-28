@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'welcome/search' => 'welcome#search'
   get 'twitter_callback_url' => 'welcome#twitter_callback_url'
+  get 'about' => 'welcome#about'
   resources :video do
     post :tag
   end

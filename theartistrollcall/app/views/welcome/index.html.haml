@@ -1,18 +1,18 @@
-.row.transparent-box
+.row
   .column.small-12
     %p something that says tag dancers and follow there videos
 
-.row.transparent-box
+.row
   .column.small-12
     %h3 Featured Videos
 
-.row.transparent-box
+.row
   .column.small-12
     %h3 Newest Videos
 
-.row.transparent-box
+.row
   - @videos.each do |vid|
-    .columns.small-3.left
+    .columns.small-3.left.transparent-box.spacing
       .flex-video{id: "flex-video-#{vid.id}"}
         %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
       = vid.yt_author

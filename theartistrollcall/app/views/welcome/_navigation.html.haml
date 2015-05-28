@@ -8,11 +8,15 @@
 
   %section.top-bar-section
     %ul.right
-      %li.active
-        = link_to 'Videos', video_index_path
       %li
-        = submit_tag "Add Video", :type => 'button', :onclick => "$('#ytModal').foundation('reveal', 'open')", class: 'button'
+        = link_to 'About', about_path
+      %li.divider
+      %li
+        = link_to 'Videos', video_index_path
+      %li.divider
+      %li
+        = link_to "Add Video", '#', :onclick => "$('#ytModal').foundation('reveal', 'open')"
     %ul.left
       %li.has-form
-        .row.collapse
+        .row.collapse.search
           =render partial: "welcome/search_form"
