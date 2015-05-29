@@ -6,29 +6,32 @@
 
       .columns.small-12.video-stats
         %ul.inline-list
-          %li{id: "video-author-#{@video.id}"}
-            Channel:
-            = @video.yt_author
-          %li{id: "video-count-#{@video.id}"}
-            Views:
-            = number_to_human(@video.yt_count)
-          %li
-            Published By:
-            = "#{time_ago_in_words(@video.yt_pub_date)} ago"
-          %li{id: "video-description-#{@video.id}"}
-            Description:
-            = @video.yt_description
+          %li.source-font{id: "video-author-#{@video.id}"}
+            %span
+              %h6 Channel:
+              = @video.yt_author
+          %li.source-font{id: "video-count-#{@video.id}"}
+            %span
+              %h6 Views:
+              = number_to_human(@video.yt_count)
+          %li.source-font
+            %span
+              %h6 Published By:
+              = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+          %li.source-font{id: "video-description-#{@video.id}"}
+            %h6 Description:
+            %p.source-font= @video.yt_description
         .row
           .column.small-12.tag-form
             =form_tag video_tag_path(@video), method: :post, remote: true  do
               .row
-                .column.small-4
+                .column.small-4.form-radio
                   =radio_button_tag(:artist_role, "dancer", required: true)
                   =label_tag(:artist_role, "Dancer")
-                .column.small-4
+                .column.small-4.form-radio
                   =radio_button_tag(:artist_role, "choreographer")
                   =label_tag(:artist_role, "Choreographer")
-                .column.small-4
+                .column.small-4.form-radio
                   =radio_button_tag(:artist_role, "assist_choreographer")
                   =label_tag(:artist_role, "Asst Choreographer")
               .row
@@ -38,7 +41,7 @@
                   =submit_tag  "Suggest",  class: 'button postfix'
         .row
           #video_tags.small-12.columns
-            Tags
+            %h5 Tags
             =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
 
 .columns.small-12.medium-3
