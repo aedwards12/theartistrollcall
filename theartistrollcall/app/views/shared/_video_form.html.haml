@@ -19,30 +19,30 @@
               %h6 Published By:
               = "#{time_ago_in_words(@video.yt_pub_date)} ago"
 
-          %li
-            %a.button{data: {dropdown: "contentDrop", options: 'align:left'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
-              Add Artist Suggestion
-            #contentDrop.f-dropdown.content.large{data: {'dropdown-content'=>""}, 'aria-hidden': "true", 'tabindex': "-1"}
-              =form_tag video_tag_path(@video), method: :post, remote: true  do
-                .row
-                  .column.small-4.form-radio
-                    =radio_button_tag(:artist_role, "dancer", required: true)
-                    =label_tag(:artist_role, "Dancer")
-                  .column.small-4.form-radio
-                    =radio_button_tag(:artist_role, "choreographer")
-                    =label_tag(:artist_role, "Choreographer")
-                  .column.small-4.form-radio
-                    =radio_button_tag(:artist_role, "assist_choreographer")
-                    =label_tag(:artist_role, "Asst Choreographer")
-                .row
-                  .small-9.columns
-                    =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
-                  .small-3.columns
-                    =submit_tag  "Suggest",  class: 'button postfix'
 
           %li.source-font{id: "video-description-#{@video.id}"}
             %h6 Description:
             %p.source-font= @video.yt_description
+
+          %a.button.small-12{data: {dropdown: "contentDrop", options: 'align:top'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
+            Suggest Artists
+          #contentDrop.f-dropdown.content.large{data: {'dropdown-content'=>""}, 'aria-hidden': "true", 'tabindex': "-1"}
+            =form_tag video_tag_path(@video), method: :post, remote: true  do
+              .row
+                .column.small-4.form-radio
+                  =radio_button_tag(:artist_role, "dancer", required: true)
+                  =label_tag(:artist_role, "Dancer")
+                .column.small-4.form-radio
+                  =radio_button_tag(:artist_role, "choreographer")
+                  =label_tag(:artist_role, "Choreographer")
+                .column.small-4.form-radio
+                  =radio_button_tag(:artist_role, "assist_choreographer")
+                  =label_tag(:artist_role, "Asst Choreographer")
+              .row
+                .small-9.columns.no_padding
+                  =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
+                .small-3.columns.no_padding
+                  =submit_tag  "Suggest",  class: 'button postfix'
         .row
           .column.small-12.tag-form
         .row

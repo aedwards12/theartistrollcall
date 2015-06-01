@@ -8,16 +8,22 @@
 }
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
+html, body{
+  height: 100%;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-p,
 *{
   font-family: 'Simplifica', serif;
-  font-size: 1.2em;
+}
+
+p{
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .search-wrapper{
@@ -67,8 +73,7 @@ ul li{
 .footer{
   height: 75px;
   background-color: #181515;
-  margin-bottom: 0px;
-
+  margin-bottom: -75px;
   .footer-text{
     text-align: center;
     font-size: 1em;
@@ -83,8 +88,8 @@ ul li{
 }
 
 .row{
-  margin: 0 50px;
-  max-width: 72rem;
+  margin: 0 30px;
+  max-width: 75rem;
 }
 
 .source-font{
@@ -95,4 +100,13 @@ ul li{
 span > h6{
   display: inline;
   font-family: 'Simplifica', serif;
+}
+
+.no_padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.welcome-section{
+  margin-bottom: 3em;
 }

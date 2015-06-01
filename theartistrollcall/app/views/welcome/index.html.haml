@@ -2,18 +2,23 @@
   .column.small-12
     %p something that says tag dancers and follow there videos
 
-.row
+.row.welcome-section
   .column.small-12
     %h3 Featured Videos
+    - @featured_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = vid.yt_author
+        = link_to 'View', video_path(vid)
 
-.row
+.row.welcome-section
   .column.small-12
     %h3 Newest Videos
+    - @newest_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = vid.yt_author
+        = link_to 'View', video_path(vid)
 
-.row
-  - @videos.each do |vid|
-    .columns.small-3.left.transparent-box.spacing
-      .flex-video{id: "flex-video-#{vid.id}"}
-        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-      = vid.yt_author
-      = link_to 'View', video_path(vid)
