@@ -7,15 +7,16 @@
       = link_to 'menu', '#'
 
   %section.top-bar-section
-    %ul.right
+    %ul.right#right_section
       %li
-        = link_to 'About', about_path
-      %li.divider
+        %span#link-border-bottom
+          = link_to 'ABOUT', about_path
       %li
-        = link_to 'Videos', video_index_path
-      %li.divider
+        %span#link-border-bottom
+          = link_to 'VIDEOS', video_index_path
       %li
-        = link_to "Add Video", '#', :onclick => "$('#ytModal').foundation('reveal', 'open')"
+        %span#link-border-bottom
+          = link_to "ADD VIDEO", '#', :onclick => "$('#ytModal').foundation('reveal', 'open')"
     %ul.left
       %li.has-form
         .row.collapse.search

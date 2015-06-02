@@ -18,3 +18,14 @@
 .reveal-modal h2{
   color: #515151;
 }
+
+input[type=text]{
+  font-size: 100%;
+}
+
+form > input{
+  font-size: 1.3em;
+}
+#video_url, #search{
+   font-size: 1.3em;
+}

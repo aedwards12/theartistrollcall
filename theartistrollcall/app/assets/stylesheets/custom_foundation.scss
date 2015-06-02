@@ -238,6 +238,7 @@
       height: auto !important;
       display: inline; }
       .top-bar-section ul li {
+        background: rgba(0, 0, 0, 0) !important;
         float: left; }
         .top-bar-section ul li .js-generated {
           display: none; }
@@ -247,7 +248,8 @@
     .top-bar-section li a:not(.button) {
       padding: 0 15px;
       line-height: 45px;
-      background: #fff; }
+      border-bottom: solid 1px #E6E6E6;
+      background: rgba(0, 0, 0, 0) !important; }
       .top-bar-section li a:not(.button):hover {
         background: #fff; }
     .top-bar-section .has-dropdown > a {
@@ -327,4 +329,20 @@
 
 .row h6{
   color: #008CBA;
+}
+
+#link-border-bottom a{
+  font-size: 1.4em;
+  border: none;
+}
+
+
+#link-border-bottom {
+   &:hover {
+     border-bottom: 1px solid orange;
+   }
+}
+
+#right_section{
+  padding-right:5em;
 }
