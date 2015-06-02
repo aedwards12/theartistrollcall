@@ -21,8 +21,9 @@
 
 
           %li.source-font{id: "video-description-#{@video.id}"}
-            %h6 Description:
-            %p.source-font= @video.yt_description
+            %span
+              %h6 Description:
+              %p.source-font= @video.yt_description
 
           %a.button.small-12{data: {dropdown: "contentDrop", options: 'align:top'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
             Suggest Artists

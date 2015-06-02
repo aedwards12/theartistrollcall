@@ -100,6 +100,7 @@ ul li{
 span > h6{
   display: inline;
   font-family: 'Simplifica', serif;
+  font-size: 1em;
 }
 
 .no_padding{
@@ -113,4 +114,12 @@ span > h6{
 
 .column h3{
   color: orange;
+}
+
+ul > h4{
+  color: orange;
+}
+
+span{
+  font-size: 1.2em;
 }
