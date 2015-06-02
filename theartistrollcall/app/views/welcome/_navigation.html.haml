@@ -16,7 +16,9 @@
           = link_to 'VIDEOS', video_index_path
       %li
         %span#link-border-bottom
-          = link_to "ADD VIDEO", '#', :onclick => "$('#ytModal').foundation('reveal', 'open')"
+          = link_to '#', :onclick => "$('#ytModal').foundation('reveal', 'open')" do
+            = fa_icon 'plus'
+            YOUTUBE VIDEO
     %ul.left
       %li.has-form
         .row.collapse.search
