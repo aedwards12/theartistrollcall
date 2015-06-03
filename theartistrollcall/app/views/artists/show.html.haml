@@ -13,12 +13,33 @@
       - @recommended_artists.each do |art|
         =render partial: "shared/twitter_node", locals: {twitter_node: art}
 
-.row
-  %h5
-    = "#{@artist.twitter_screen_name}'s choreography"
-  - @videos.each do |vid|
-    .columns.small-3.left.transparent-box.spacing
-      .flex-video{id: "flex-video-#{vid.id}"}
-        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-      = link_to 'View', video_path(vid)
 
+- if @choreography_videos.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s choreography"
+    - @choreography_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)
+
+- if @asst_choreography.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s asst choreography"
+    - @asst_choreography.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)
+
+- if  @dancer_videos.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s dancing"
+    - @dancer_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)

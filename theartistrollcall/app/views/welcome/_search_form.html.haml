@@ -7,9 +7,12 @@
 :javascript
   $(document).ready(function() {
     $('#search').select2({
-          minimumInputLength: 1,
+          minimumInputLength: 0,
           placeholder: "Search Artists",
           allowClear: true,
+          formatInputTooShort: function () {
+                return "";
+            },
           ajax: {
             url: "#{welcome_search_path}",
             dataType: 'json',
