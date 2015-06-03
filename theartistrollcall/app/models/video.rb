@@ -5,6 +5,11 @@ class Video < ActiveRecord::Base
   has_many :artist_videos
   has_many :artists, through: :artist_videos
 
+  YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
+
+  validates :url, presence:{ format: YT_LINK_FORMAT,  message: 'Invalid youtube url'}, uniqueness: true
+
+
   attr_accessor :yt_count, :yt_title, :yt_description, :yt_author, :yt_pub_date
 
 

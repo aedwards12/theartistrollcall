@@ -1,0 +1,5 @@
+- if @video.errors.any?
+  $('#ytModal').html("#{j(render partial: 'shared/new_video_form', locals:{video: @video})}");
+- else
+  $('#ytModal').foundation('reveal', 'close');
+  window.location.href = "#{video_path(@video)}"
