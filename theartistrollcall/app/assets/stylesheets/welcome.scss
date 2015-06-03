@@ -12,6 +12,13 @@ html, body{
   height: 100%;
 }
 
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -75px auto;
+}
+
 h1,
 h2,
 h3,
@@ -73,7 +80,6 @@ ul li{
 .footer{
   height: 75px;
   background-color: #181515;
-  margin-bottom: -75px;
   .footer-text{
     text-align: center;
     font-size: 1em;
