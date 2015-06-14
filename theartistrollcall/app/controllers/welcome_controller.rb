@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    @contact_form = ContactForm.new
   end
 
   def search

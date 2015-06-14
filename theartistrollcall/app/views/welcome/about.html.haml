@@ -6,3 +6,13 @@
     %p Ancillae tractatos gloriatur id quo, cum porro albucius in. Pro legere volumus fabellas ne, ex cum iusto efficiendi, his eu utinam concludaturque. Pri salutandi persequeris ne, et iudico petentium quo, id sit elit lucilius oportere. Vis euismod deserunt definitionem id.
 
     %p Pro epicuri intellegat disputando an, saperet insolens consetetur sed no, cetero referrentur vim ex. Qui ad congue inimicus. Vis decore tamquam ad, vix adhuc cotidieque ut. Est no error persius eripuit, legere bonorum sit in, at nam mucius adipisci. Diceret accusam scriptorem nam an.
+
+.row
+  .columns.small-12.large-6
+    %h2 We love feedback
+    #contact_form
+      = simple_form_for @contact_form, remote: true do |f|
+        = f.input :name
+        = f.input :email
+        = f.input :message, as: :text
+        = f.submit class: 'button'

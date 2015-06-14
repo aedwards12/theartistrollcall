@@ -1,0 +1,2 @@
+$("#flash_messages").html("#{escape_javascript(render(:partial => 'layouts/flash_message', :locals => {:flash => flash, :flush_flash => true}))}");
+$("html, body").animate({ scrollTop: 0 }, "slow");

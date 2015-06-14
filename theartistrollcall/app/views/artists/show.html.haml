@@ -34,7 +34,7 @@
           %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
         = link_to 'View', video_path(vid)
 
-- if  @dancer_videos.any?
+- if @dancer_videos.any?
   .row
     %h5
       = "#{@artist.twitter_screen_name}'s dancing"

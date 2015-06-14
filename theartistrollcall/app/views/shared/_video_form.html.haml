@@ -48,10 +48,10 @@
                   =submit_tag  "Add Artist",  class: 'button postfix'
         .row
           .column.small-12.tag-form
-        .row
-          #video_tags.small-12.columns
-            %h5 Tags
-            =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
+        /.row
+        / #video_tags.small-12.columns
+        / %h5 Tags
+        / =render partial: "shared/dancer_list", locals: {dancer_list: video.dancer_list}
 
 .columns.small-12.medium-3
   #twitter_list.small-12.columns
