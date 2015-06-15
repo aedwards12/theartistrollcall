@@ -44,7 +44,7 @@ p{
 //navigation-styles
 
 .nav-css{
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 h1,h2,h3,h4,h5,h4{
@@ -110,8 +110,10 @@ span > h6{
 }
 
 #new_contact_form{
-  background-color: #EBEBEB;
   font-size: 1em;
+  label{
+    color: orange;
+  }
 }
 
 #contact_form{

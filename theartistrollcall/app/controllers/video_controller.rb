@@ -25,11 +25,12 @@ class VideoController < ApplicationController
     if choreographer
       @choreographer = Artist.find(choreographer.artist_id)
     end
+    @asst_choreographers = ArtistVideo.includes(:artist).where(video_id: @video.id, artist_role: '2')
     dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
     @dancers = Artist.find(dancers.pluck(:artist_id))
-    respond_to do |format|
-      format.js {render 'tag'}
-    end
+    # respond_to do |format|
+    #   format.js {render 'tag'}
+    # end
   end
 
   def new
@@ -64,6 +65,9 @@ class VideoController < ApplicationController
     if choreographer
       @choreographer = Artist.find(choreographer.artist_id)
     end
+
+    @asst_choreographers = ArtistVideo.includes(:artist).where(video_id: @video.id, artist_role: '2')
+
     dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
     @dancers = Artist.find(dancers.pluck(:artist_id))
   end

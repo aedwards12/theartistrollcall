@@ -9,7 +9,7 @@ class ArtistVideo < ActiveRecord::Base
 
   enum artist_role: [ :dancer, :choreographer, :assist_choreographer ]
 
-  def artist
-    Artist.find(artist)
-  end
+  # def artist
+  #   Artist.find(artist)
+  # end
 end

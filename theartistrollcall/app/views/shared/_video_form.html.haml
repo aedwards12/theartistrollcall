@@ -25,7 +25,7 @@
               %h6 Description:
               = @video.yt_description
 
-          %a.button.small-12{data: {dropdown: "contentDrop", options: 'align:top'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
+          %a.button.small-12{id:"tag_dropdown",data: {dropdown: "contentDrop", options: 'align:top'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
             Suggest Artists
           #contentDrop.f-dropdown.content.large{data: {'dropdown-content'=>""}, 'aria-hidden': "true", 'tabindex': "-1"}
             =form_tag video_tag_path(@video), method: :post, remote: true  do
@@ -55,7 +55,7 @@
 
 .columns.small-12.medium-3
   #twitter_list.small-12.columns
-    =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer}
+    =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer, assist_choreographers: @asst_choreographers}
 
 / :javascript
 /     $(document).ready( function() {
