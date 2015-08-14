@@ -8,14 +8,16 @@
 
 
 Artist.create([
-  {twitter_screen_name: "AnthonyEdwardsj", twitter_img_url: "http://pbs.twimg.com/profile_images/378800000110195325/1f6209cdf7cf3c03aec4e700a5290e83_normal.jpeg"},
-  {twitter_screen_name: "OoohTRaw", twitter_img_url: "http://pbs.twimg.com/profile_images/577614717545541632/ohqZaL1t_normal.jpeg",twitter_id: "98922435", name: "TeeTee"},
-  {twitter_screen_name: "SarenaBahad", twitter_img_url: "http://pbs.twimg.com/profile_images/460790894203920384/-e-2y7aa_normal.jpeg", twitter_id: "24548534", name: "Sarena Bahad"}
+  {twitter_screen_name: "AnthonyEdwardsj", twitter_img_url: "http://pbs.twimg.com/profile_images/378800000110195325/1f6209cdf7cf3c03aec4e700a5290e83_normal.jpeg", twitter_id: 0, name: "Anthony Edwards Jr"},
+  {twitter_screen_name: "luamky", twitter_img_url: "https://pbs.twimg.com/profile_images/378800000410691785/360908c77177ae269a31f335628b7296_normal.jpeg", twitter_id: 1, name: "Luam"},
+  {twitter_screen_name: "ValentineNorton", twitter_img_url: "https://pbs.twimg.com/profile_images/608854862235697152/4gf4LiBK_normal.jpg",twitter_id: 2, name: "Valentine Norton"}
   ])
-
-Video.create([ {url: '9ypdIf85gI'}, {url: "qXR0ujpNHVM"}, {url: "JV3VOoWH_yg"}, {url: "NoZU7T4CcoI"}])
+Video.create([{url: "qXR0ujpNHVM"}, {url: "JV3VOoWH_yg"}, {url: "NoZU7T4CcoI"}])
+Video.all.each do |vid|
+  vid.set_yt_data
+end
 
 5.times do
-  ArtistVideo.create( artist_id: rand(3),  video_id: rand(4), artist_role: rand(3))
+  ArtistVideo.create( artist_id: [1,2,3].sample,  video_id: [1,2,3].sample, artist_role: [1,2,3].sample )
 end
 

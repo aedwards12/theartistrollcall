@@ -40,7 +40,9 @@ class VideoController < ApplicationController
   def create
     @video = Video.new(url: video_params[:url].split('v=').second)
     @new_video = Video.new
-    @video.save
+    if @video.save
+      @video.set_yt_data
+    end
   end
 
   def edit
@@ -67,7 +69,6 @@ class VideoController < ApplicationController
     end
 
     @asst_choreographers = ArtistVideo.includes(:artist).where(video_id: @video.id, artist_role: '2')
-
     dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
     @dancers = Artist.find(dancers.pluck(:artist_id))
   end
