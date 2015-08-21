@@ -1,0 +1,45 @@
+.row
+  .columns.small-12.large-9
+    =image_tag( @artist.twitter_img_url.split('normal').join('200x200'))
+
+    %h6= @artist.twitter_screen_name
+    %a.twitter-follow-button{ href: "https://twitter.com/#{@artist.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
+      Follow @
+      ="#{@artist.twitter_screen_name}"
+
+  .columns.small-12.large-3.right
+    %h5 Recommended Artists
+    %ul
+      - @recommended_artists.each do |art|
+        =render partial: "shared/twitter_node", locals: {twitter_node: art}
+
+
+- if @choreography_videos.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s choreography"
+    - @choreography_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)
+
+- if @asst_choreography.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s asst choreography"
+    - @asst_choreography.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)
+
+- if @dancer_videos.any?
+  .row
+    %h5
+      = "#{@artist.twitter_screen_name}'s dancing"
+    - @dancer_videos.each do |vid|
+      .columns.small-3.left.transparent-box.spacing
+        .flex-video{id: "flex-video-#{vid.id}"}
+          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        = link_to 'View', video_path(vid)

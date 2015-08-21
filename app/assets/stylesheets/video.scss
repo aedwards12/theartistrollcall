@@ -1,0 +1,50 @@
+// Place all the styles related to the video controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Form*/
+.form-radio{
+  height: 100px;
+}
+
+.form-radio label{
+  font-size: 1.4rem;
+  color: #515151;
+}
+.f-dropdown.content{
+  background-color: #E6E6E6;
+}
+
+.reveal-modal h2{
+  color: #515151;
+}
+
+input[type=text]{
+  font-size: 100%;
+}
+
+form > input{
+  font-size: 1.3em;
+}
+#video_url, #search{
+   font-size: 1.3em;
+}
+
+.radio-button-div{
+  height: 30px;
+}
+
+.form-radio{
+  height: 40px;
+}
+
+.row label{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.4em;
+  font-weight: 900;
+}
+/*video page*/
+.main-video{
+  margin-bottom: 10em !important;
+
+}

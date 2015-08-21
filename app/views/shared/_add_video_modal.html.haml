@@ -1,0 +1,10 @@
+.reveal-modal.small{data: {reveal: ''}, id: "ytModal", 'aria-labelledby': "firstModalTitle",  'aria-hidden': "true", role: "dialog"}
+  %h2 Add Youtube Video
+  .collapse.prefix-round
+    =simple_form_for "video", url: video_index_path, remote: true do |f|
+      .small-9.columns.no_padding
+        =f.input :url, label: false, placeholder: "ex https://www.youtube.com/watch?v=qQraeOG-3L8", input_html: {value: ''}
+      .small-3.columns.no_padding
+        =f.submit  "Add",  class: 'button postfix'
+  %a{'aria-label': 'close', class: 'close-reveal-modal'}
+    &#215;

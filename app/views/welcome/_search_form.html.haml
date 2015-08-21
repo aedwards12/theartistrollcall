@@ -1,0 +1,32 @@
+.small-12.columns
+  .row.collapse.prefix-round
+    =form_tag  welcome_search_path, method: :post do
+      .small-9.columns
+        =text_field_tag :search, nil
+
+:javascript
+  $(document).ready(function() {
+    $('#search').select2({
+          minimumInputLength: 0,
+          placeholder: "Search Artists",
+          allowClear: true,
+          formatInputTooShort: function () {
+                return "";
+            },
+          ajax: {
+            url: "#{welcome_search_path}",
+            dataType: 'json',
+            quietMillis: 700,
+            data: function(term) {
+              return {q: term};
+            },
+            results: function(data) {
+              return {results: data};
+            },
+            cache: true
+          }
+      }).on("select2-selecting", function(e) {
+        window.location = "/artists/" + e.val;
+      });
+    });
+

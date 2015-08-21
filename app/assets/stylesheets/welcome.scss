@@ -1,0 +1,142 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: 'Simplifica';
+    src: url("SIMPLIFICA_Typeface.ttf");
+}
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
+
+html, body{
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -75px auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+*{
+  font-family: 'Simplifica', serif;
+}
+
+p{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.search-wrapper{
+  width: 200px;
+  }
+
+.tag-form{
+
+}
+
+//navigation-styles
+
+.nav-css{
+  margin-bottom: 50px;
+}
+
+h1,h2,h3,h4,h5,h4{
+  color: rgb(216,216,216);
+}
+
+body{
+  font-family: 'Simplifica', serif;
+  color: rgb(216,216,216);
+  background-image: url("http://i1372.photobucket.com/albums/ag340/anthonyedwardsjr/A-Time-To-Dance-Floor-large-shade_zpsywoy42jz.jpg");
+  background-repeat: none;
+  background-size: cover;
+  background-position: 50%, 70%;
+  background-attachment: fixed;
+  width: 100% !important;
+}
+
+.transparent-box{
+  background-color:  rgba(0, 0, 0, 0.6);
+}
+
+ul li{
+  list-style-type: none;
+  padding-bottom: 3px;
+}
+
+.spacing{
+  margin-left: 17px;
+  width: 23.5%;
+  margin-bottom: 5px;
+}
+
+.footer{
+  height: 75px;
+  background-color: #181515;
+  .footer-text{
+    text-align: center;
+    font-size: 1em;
+    top: 32%;
+    position: relative;
+    color: #8B8B8B;
+
+    a{
+      color: #007094;
+    }
+  }
+}
+
+.row{
+  margin: 0 30px;
+  max-width: 75rem;
+}
+
+.source-font{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.0em;
+}
+
+span > h6{
+  display: inline;
+  font-family: 'Simplifica', serif;
+  font-size: 1em;
+}
+
+#new_contact_form{
+  font-size: 1em;
+  label{
+    color: orange;
+  }
+}
+
+#contact_form{
+  padding: 5px;
+}
+
+.no_padding{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.welcome-section{
+  margin-bottom: 3em;
+}
+
+.column h3{
+  color: orange;
+}
+
+ul > h4{
+  color: orange;
+}
+
+span{
+  font-size: 1.2em;
+}

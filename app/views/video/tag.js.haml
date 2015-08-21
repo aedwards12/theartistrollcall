@@ -1,0 +1,8 @@
+debugger;
+console.log('asdfadsfa');
+$("#dancer_tags").val(" ");
+$(document).foundation('dropdown', 'close', $('.f-dropdown'));
+$("#twitter_list).replaceWith(" #{ j (render partial: 'shared/twitter_list', locals: {twitter_list: @dancers, choreographer: @choreographer, assist_choreographers: @asst_choreographers})}");
+$("html, body").animate({ scrollTop: 0 }, "slow");
+$("#flash_messages").html("#{escape_javascript(render(:partial => 'layouts/flash_message', :locals => {:flash => flash, :flush_flash => true}))}");
+console.log('end');
