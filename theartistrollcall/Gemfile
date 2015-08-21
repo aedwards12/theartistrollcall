@@ -46,7 +46,7 @@ gem 'devise'
 gem 'twitter'
 gem "select2-rails"
 gem "oauth"
-gem 'dotenv-rails'
+gem 'dotenv-rails', :groups => [:development, :test, :production]
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,7 +60,6 @@ group :development, :test do
   gem 'database_cleaner'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'dotenv-rails'
   gem 'quiet_assets'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
