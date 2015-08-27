@@ -8,10 +8,16 @@
 }
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
+
+
 html, body{
   height: 100%;
 }
 
+#wrapper_container{
+  width: 1400px;
+  margin: 0 auto
+}
 .wrapper {
   min-height: 100%;
   height: auto !important;

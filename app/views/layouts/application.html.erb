@@ -13,17 +13,19 @@
   </head>
 
   <body>
-    <div id='flash_messages' >
-      <% render :partial => 'layouts/flash_message', :locals => { :flash => flash } %>
-    </div>
-    <%= render 'welcome/navigation'%>
-    <div class='wrapper'>
+      <div id='flash_messages' >
+        <% render :partial => 'layouts/flash_message', :locals => { :flash => flash } %>
+      </div>
+      <%= render 'welcome/navigation'%>
+      <div id='wrapper_container'>
+        <div class='wrapper'>
 
-    <%= yield %>
-    <%= render 'shared/add_video_modal'%>
+        <%= yield %>
+        <%= render 'shared/add_video_modal'%>
 
-    </div>
-    <%= render 'shared/footer'%>
+        </div>
+      </div>
+      <%= render 'shared/footer'%>
   </body>
   <script>window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));</script>
 
