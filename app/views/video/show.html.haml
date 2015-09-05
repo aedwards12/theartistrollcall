@@ -1,2 +1,4 @@
 .row.main-video
   =render partial: "shared/video_form", locals: {video: @video}
+:javascript
+  twttr.widgets.load();
