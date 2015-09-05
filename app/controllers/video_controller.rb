@@ -3,7 +3,6 @@ class VideoController < ApplicationController
   before_action :set_twitter_client, only: [:tag]
 
   def tag
-    binding.pry
     dancer_list = params[:dancer_tags]
     @video.dancer_list.add(dancer_list, parse: true)
     if @video.save
