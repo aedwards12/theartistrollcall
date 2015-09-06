@@ -8,13 +8,14 @@ class VideoController < ApplicationController
     if @video.save
         dancer_list.split(",").each do | dancer |
         if dancer.strip[0] == "@"
-            user = @client.user(dancer.strip.downcase.delete('@'))
+            user = @client.user(dancer.strip.downcase)
             @artist = Artist.where(
-                                 twitter_screen_name: user.screen_name,
-                                 twitter_img_url: user.profile_image_url.to_s,
                                  twitter_id: user.id,
-                                 name: user.name
-                                ).first_or_create
+                                ).first_or_create do |art|
+              art.twitter_screen_name = user.screen_name
+              art.twitter_img_url = user.profile_image_url.to_s
+              art.name = user.name
+            end
            ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
 
         end
