@@ -32,8 +32,4 @@ class WelcomeController < ApplicationController
       format.json { render json: @artists}
     end
   end
-
-  def twitter_callback_url
-    # binding.pry
-  end
 end

@@ -1,16 +1,17 @@
 %ul
   %h4 Choreographer
-  - if choreographer
-    =render partial: "shared/twitter_node", locals: {twitter_node: choreographer}
+  - if choreographer.any?
+    - choreographer.each do |choreo|
+      =render partial: "shared/twitter_node", locals: {twitter_node: choreo}
 
   %li.divider
   %h4 Asst Choreographers
-  - if assist_choreographers
+  - if assist_choreographers.any?
     - assist_choreographers.each do | twitter_node |
-      =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node.artist}
+      =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}
 
   %li.divider
   %h4 Dancers
-  - if twitter_list
+  - if twitter_list.any?
     - twitter_list.each do | twitter_node |
       =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}

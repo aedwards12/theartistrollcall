@@ -17,21 +17,13 @@ class VideoController < ApplicationController
               art.name = user.name
             end
            ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
-
         end
       end
     end
-
-    choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
-    if choreographer
-      @choreographer = Artist.find(choreographer.artist_id)
-    end
-    @asst_choreographers = ArtistVideo.includes(:artist).where(video_id: @video.id, artist_role: '2')
-    dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
-    @dancers = Artist.find(dancers.pluck(:artist_id))
-    # respond_to do |format|
-    #   format.js {render 'tag'}
-    # end
+    artists = @video.artists
+    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
+    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
+    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
   end
 
   def new
@@ -64,14 +56,10 @@ class VideoController < ApplicationController
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
-    choreographer = ArtistVideo.where(video_id: @video.id, artist_role: '1').first
-    if choreographer
-      @choreographer = Artist.find(choreographer.artist_id)
-    end
-
-    @asst_choreographers = ArtistVideo.includes(:artist).where(video_id: @video.id, artist_role: '2')
-    dancers = ArtistVideo.where(video_id: @video.id, artist_role: '0')
-    @dancers = Artist.find(dancers.pluck(:artist_id))
+    artists = @video.artists
+    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
+    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
+    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
   end
 
   def all_videos
