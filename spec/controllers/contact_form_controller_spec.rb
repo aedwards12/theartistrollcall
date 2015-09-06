@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ContactFormController, type: :controller do
+RSpec.describe ContactFormsController, type: :controller do
 
 
 
