@@ -46,6 +46,9 @@ gem 'twitter'
 gem "select2-rails"
 gem "oauth"
 gem 'dotenv-rails', :groups => [:development, :test, :production]
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
