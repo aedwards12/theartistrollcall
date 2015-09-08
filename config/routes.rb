@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+
+
   get 'contact_form/new'
 
   get 'contact_form/create'
@@ -19,6 +22,8 @@ Rails.application.routes.draw do
   resources :artists
 
   resources :contact_forms
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
