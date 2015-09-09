@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :contact_forms
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  get 'artist/:id/up_vote' => 'votes#up_vote', via: :get, as: :up_vote
+  get 'artist/:id/down_vote' => 'votes#down_vote', via: :get, as: :down_vote
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
