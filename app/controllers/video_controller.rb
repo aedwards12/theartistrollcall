@@ -16,7 +16,10 @@ class VideoController < ApplicationController
               art.twitter_img_url = user.profile_image_url.to_s
               art.name = user.name
             end
-           ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
+           ArtistVideo.where(artist: @artist, video: @video).first_or_create do |art|
+            art.artist_role =  params[:artist_role]
+            art.save
+           end
         end
       end
     end

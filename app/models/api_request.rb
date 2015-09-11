@@ -1,4 +1,4 @@
-class    < ActiveRecord::Base
+class ApiRequest < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
 
   def self.cache(url, cache_policy, id)
