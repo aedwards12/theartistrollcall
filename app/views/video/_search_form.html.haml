@@ -1,0 +1,34 @@
+.small-12.columns
+  .row.collapse.prefix-round
+    =form_tag  videos_path, method: :get do
+      .small-9.columns
+        =text_field_tag :search, nil
+
+        / do a get request with params q, in controller check for params then return results
+
+:javascript
+  $(document).ready(function() {
+    $('#search').select2({
+          minimumInputLength: 0,
+          placeholder: "Search Artists",
+          allowClear: true,
+          formatInputTooShort: function () {
+                return "";
+            },
+          ajax: {
+            url: "#{videos_path}",
+            dataType: 'json',
+            quietMillis: 700,
+            data: function(term) {
+              return {q: term};
+            },
+            results: function(data) {
+              return {results: data};
+            },
+            cache: true
+          }
+      }).on("select2-selecting", function(e) {
+        window.location = "/artists/" + e.val;
+      });
+    });
+
