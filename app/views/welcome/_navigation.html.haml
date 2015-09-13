@@ -8,12 +8,25 @@
 
   %section.top-bar-section
     %ul.right#right_section
+      - if user_signed_in?
+        %li
+          %span#link-border-bottom
+            ="signed in as #{current_user.name}"
+        %li
+          %span#link-border-bottom
+            = link_to 'Log Out', destroy_user_session_path, method: :delete
+
+      - else
+        %li
+          %span#link-border-bottom
+            = link_to 'Login', new_user_session_path
       %li
         %span#link-border-bottom
           = link_to 'ABOUT', about_path
-      / %li
-      / %span#link-border-bottom
-      / = link_to 'VIDEOS', video_index_path
+      %li
+        %span#link-border-bottom
+          = link_to 'VIDEOS', video_index_path
+
       %li
         %span#link-border-bottom
           = link_to '#', :onclick => "$('#ytModal').foundation('reveal', 'open')" do

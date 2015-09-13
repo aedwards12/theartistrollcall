@@ -5,25 +5,31 @@ class VideoController < ApplicationController
   def tag
     dancer_list = params[:dancer_tags]
     @video.dancer_list.add(dancer_list, parse: true)
-    if @video.save
-        dancer_list.split(",").each do | dancer |
-        if dancer.strip[0] == "@"
-            user = @client.user(dancer.strip.downcase)
-            @artist = Artist.where(
-                                 twitter_id: user.id,
-                                ).first_or_create do |art|
-              art.twitter_screen_name = user.screen_name
-              art.twitter_img_url = user.profile_image_url.to_s
-              art.name = user.name
-            end
-           ArtistVideo.where(artist: @artist, video: @video, artist_role: params[:artist_role] ).first_or_create
+    dancer_list.split(",").each do | dancer |
+      @artist = Artist.where(twitter_screen_name: dancer).first
+      begin
+        @artist ||=@client.user(dancer.strip.downcase)
+        if @artist.class.name != "Artist"
+          @artist = Artist.where(
+                               twitter_id: @artist.id,
+                              ).first_or_create do |art|
+            art.twitter_screen_name = @artist.screen_name
+            art.twitter_img_url = @artist.profile_image_url.to_s
+            art.name = @artist.name
+          end
         end
+      ArtistVideo.where(artist: @artist, video: @video).first_or_create do |art|
+        art.artist_role = params[:artist_role]
+        art.save
+      end
+      rescue Twitter::Error
+
       end
     end
     artists = @video.artists
     @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
-    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
-    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
+    @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
+    @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
   end
 
   def new
@@ -31,7 +37,7 @@ class VideoController < ApplicationController
   end
 
   def create
-    @video = Video.new(url: video_params[:url].split('v=').second)
+    @video = Video.where(url: video_params[:url].split('v=').second).first_or_create
     @new_video = Video.new
     if @video.save
       @video.set_yt_data
@@ -44,7 +50,16 @@ class VideoController < ApplicationController
 
   def index
     all_videos
-    @videos.each(&:set_yt_data)
+    if params["q"]
+      video_search = "%#{params["q"]}%"
+      @videos_scope = @videos_scope.where("yt_title ILIKE ?", video_search)
+    end
+    @videos = @videos_scope
+    # @videos = @videos_scope.extend(Kaminari::PaginatableRelationToPaginatableArray).to_paginatable_array
+    respond_to do |format|
+      format.html{}
+      format.js{render '/video/index.js'}
+    end
   end
 
   private
@@ -63,7 +78,7 @@ class VideoController < ApplicationController
   end
 
   def all_videos
-    @videos = Video.all
+    @videos_scope = Video.all
   end
 
   def video_params
