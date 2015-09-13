@@ -23,8 +23,6 @@ class User < ActiveRecord::Base
     # Note that this may leave zombie accounts (with no associated identity) which
     # can be cleaned up at a later date.
     user = signed_in_resource ? signed_in_resource : identity.user
-    logger.ap identity.inspect
-    logger.ap identity.user.inspect
     # Create the user if needed
     if user.nil?
 
