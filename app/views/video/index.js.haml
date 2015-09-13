@@ -1,0 +1,3 @@
+$('.video_div').remove();
+- @videos.each do |vid|
+  $('#video_container').append("#{ j(render partial: '/video/video', locals: {vid: vid})}");

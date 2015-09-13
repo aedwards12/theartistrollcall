@@ -47,7 +47,16 @@ class VideoController < ApplicationController
 
   def index
     all_videos
-    @videos.each(&:set_yt_data)
+    if params["q"]
+      video_search = "%#{params["q"]}%"
+      @videos_scope = @videos_scope.where("yt_title ILIKE ?", video_search)
+    end
+    @videos = @videos_scope
+    # @videos = @videos_scope.extend(Kaminari::PaginatableRelationToPaginatableArray).to_paginatable_array
+    respond_to do |format|
+      format.html{}
+      format.js{render '/video/index.js'}
+    end
   end
 
   private
@@ -66,7 +75,7 @@ class VideoController < ApplicationController
   end
 
   def all_videos
-    @videos = Video.all
+    @videos_scope = Video.all
   end
 
   def video_params
