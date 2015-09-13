@@ -5,28 +5,31 @@ class VideoController < ApplicationController
   def tag
     dancer_list = params[:dancer_tags]
     @video.dancer_list.add(dancer_list, parse: true)
-    if @video.save
-        dancer_list.split(",").each do | dancer |
-        if dancer.strip[0] == "@"
-            user = @client.user(dancer.strip.downcase)
-            @artist = Artist.where(
-                                 twitter_id: user.id,
-                                ).first_or_create do |art|
-              art.twitter_screen_name = user.screen_name
-              art.twitter_img_url = user.profile_image_url.to_s
-              art.name = user.name
-            end
-           ArtistVideo.where(artist: @artist, video: @video).first_or_create do |art|
-            art.artist_role =  params[:artist_role]
-            art.save
-           end
+    dancer_list.split(",").each do | dancer |
+      @artist = Artist.where(twitter_screen_name: dancer).first
+      begin
+        @artist ||=@client.user(dancer.strip.downcase)
+        if @artist.class.name != "Artist"
+          @artist = Artist.where(
+                               twitter_id: @artist.id,
+                              ).first_or_create do |art|
+            art.twitter_screen_name = @artist.screen_name
+            art.twitter_img_url = @artist.profile_image_url.to_s
+            art.name = @artist.name
+          end
         end
+      ArtistVideo.where(artist: @artist, video: @video).first_or_create do |art|
+        art.artist_role = params[:artist_role]
+        art.save
+      end
+      rescue Twitter::Error
+
       end
     end
     artists = @video.artists
     @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
-    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
-    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
+    @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
+    @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
   end
 
   def new
