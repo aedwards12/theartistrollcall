@@ -34,7 +34,7 @@ class VideoController < ApplicationController
   end
 
   def create
-    @video = Video.new(url: video_params[:url].split('v=').second)
+    @video = Video.where(url: video_params[:url].split('v=').second).first_or_create
     @new_video = Video.new
     if @video.save
       @video.set_yt_data
