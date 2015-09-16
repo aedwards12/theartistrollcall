@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # devise :omniauthable, :omniauth_providers => [:google_oauth2, :twitter]
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
-        user.skip_confirmation!
+        # user.skip_confirmation_notification!
         user.save!
       end
     end
