@@ -9,6 +9,7 @@
   %section.top-bar-section
     %ul.right#right_section
       - if user_signed_in?
+
         %li
           %span#link-border-bottom
             ="signed in as #{current_user.name}"
@@ -19,7 +20,7 @@
       - else
         %li
           %span#link-border-bottom
-            = link_to 'Login', new_user_session_path
+            = link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter), target: "_blank"
       %li
         %span#link-border-bottom
           = link_to 'ABOUT', about_path
