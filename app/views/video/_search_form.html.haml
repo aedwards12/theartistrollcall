@@ -2,9 +2,7 @@
   .row.collapse.prefix-round
     =form_tag  video_index_path, remote: true, method: :get do
       .small-9.columns
-        =text_field_tag :q, nil
-
-/ do a get request with params q, in controller check for params then return results
+        =text_field_tag :q, nil, placeholder: "Seach videos by title"
 
 :javascript
   $(document).ready(function() {
