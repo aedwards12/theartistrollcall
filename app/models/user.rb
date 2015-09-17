@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
       end
     end
 
+    if user.avatar != auth.info.image
+      user.update(avatar: auth.info.image)
+    end
+
     # Associate the identity with the user if needed
     if identity.user != user
       identity.user = user
