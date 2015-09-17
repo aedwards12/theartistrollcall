@@ -21,6 +21,7 @@
 
 input[type=text]{
   font-size: 100%;
+  font-family: arial;
 }
 
 form > input{
@@ -54,5 +55,6 @@ form > input{
 }
 
 .vote_row{
+  text-align: center;
   display: block;
 }

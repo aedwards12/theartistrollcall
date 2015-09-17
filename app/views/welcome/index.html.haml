@@ -1,25 +1,30 @@
-/ .row
-/   .column.small-12
-/     %p something that says tag dancers and follow there videos
+.row
+  #banner_section.small-12.columns
+    %h1 Get Ready to Dance
+
 
 .row.welcome-section
-  .column.small-12
+  .small-12.columns
     %h3 FEATURED VIDEOS
     - @featured_videos.each do |vid|
-      .columns.small-3.left.transparent-box.spacing
+      .small-3.columns.left.transparent-box.spacing
         .flex-video{id: "flex-video-#{vid.id}"}
           %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
         = vid.yt_author
         = link_to video_path(vid) do
           = fa_icon 'youtube-play'
           View
+.row
+  #mid_welcome_section.small-12.columns
+    %h6
+      "WhoDatIs empowers you to connect with your fans, build your fan base, and get noticed."
 
 
 .row.welcome-section
-  .column.small-12
+  .small-12.columns
     %h3 NEWEST VIDEOS
     - @newest_videos.each do |vid|
-      .columns.small-3.left.transparent-box.spacing
+      .small-3.columns.left.transparent-box.spacing
         .flex-video{id: "flex-video-#{vid.id}"}
           %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
         = vid.yt_author

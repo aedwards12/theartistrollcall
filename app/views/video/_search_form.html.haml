@@ -1,8 +1,10 @@
 .small-12.columns
   .row.collapse.prefix-round
     =form_tag  video_index_path, remote: true, method: :get do
-      .small-9.columns
+      .small-9.columns.no_padding
         =text_field_tag :q, nil, placeholder: "Seach videos by title"
+      .small-3.columns.no_padding
+        =submit_tag "search", class: 'button postfix'
 
 :javascript
   $(document).ready(function() {

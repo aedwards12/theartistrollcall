@@ -19,7 +19,9 @@
       - else
         %li
           %span#link-border-bottom
-            = link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter), target: "_blank"
+            = link_to omniauth_authorize_path(:user, :twitter), target: "_blank" do
+              %i.fa.fa-twitter
+              Sign in with Twitter
       %li
         %span#link-border-bottom
           = link_to 'ABOUT', about_path

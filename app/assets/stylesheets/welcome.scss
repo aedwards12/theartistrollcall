@@ -3,8 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @font-face {
-    font-family: 'Simplifica';
-    src: url(font-path("SIMPLIFICA_Typeface.ttf"));
+  font-family: 'Simplifica';
+  src: url(font-path("SIMPLIFICA_Typeface.ttf"));
 }
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300);
 
@@ -45,6 +45,30 @@ p{
 
 .tag-form{
 
+}
+
+#banner_section{
+  height: 600px;
+  padding: rem-calc(20 0);
+  // background-color: #121212;
+
+  h1{
+    font-size: rem-calc(40);
+    text-align: center;
+  }
+}
+
+#mid_welcome_section{
+  // background-color: #121212;
+  // background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+#mid_welcome_section h6{
+  font-size: 1.2em;
+  color: #BFBFBF
 }
 
 //navigation-styles
@@ -99,10 +123,10 @@ ul li{
   }
 }
 
-.row{
-  margin: 0 30px;
-  max-width: 75rem;
-}
+// .row{
+//   margin: 0 30px;
+//   max-width: 75rem;
+// }
 
 .source-font{
   font-family: 'Source Sans Pro', sans-serif;
