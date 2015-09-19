@@ -193,3 +193,14 @@ span{
 .banner_row{
   background-color: rgba(0, 0, 0, 0.6);
 }
+
+.dancer_list{
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+.scrollable{
+  overflow-y:auto;
+  height: 800px;
+}

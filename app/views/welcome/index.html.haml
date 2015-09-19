@@ -9,16 +9,15 @@
 
 
 .row.welcome-section
-  .small-12.columns
-    %h3.white_font FEATURED VIDEOS
-    - @featured_videos.each do |vid|
-      .small-3.columns.left.transparent-box.spacing
-        .flex-video{id: "flex-video-#{vid.id}"}
-          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-        = vid.yt_author
-        = link_to video_path(vid) do
-          = fa_icon 'youtube-play'
-          View
+  %h3.white_font FEATURED VIDEOS
+  - @featured_videos.each do |vid|
+    .small-3.columns.left.transparent-box.spacing
+      .flex-video{id: "flex-video-#{vid.id}"}
+        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+      = vid.yt_author
+      = link_to video_path(vid) do
+        = fa_icon 'youtube-play'
+        View
 .row
   #mid_welcome_section.small-12.columns
     %h6
@@ -26,14 +25,13 @@
 
 
 .row.welcome-section
-  .small-12.columns
-    %h3.white_font NEWEST VIDEOS
-    - @newest_videos.each do |vid|
-      .small-3.columns.left.transparent-box.spacing
-        .flex-video{id: "flex-video-#{vid.id}"}
-          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-        = vid.yt_author
-        = link_to video_path(vid) do
-          = fa_icon 'youtube-play'
-          View
+  %h3.white_font NEWEST VIDEOS
+  - @newest_videos.each do |vid|
+    .small-3.columns.left.transparent-box.spacing
+      .flex-video{id: "flex-video-#{vid.id}"}
+        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+      = vid.yt_author
+      = link_to video_path(vid) do
+        = fa_icon 'youtube-play'
+        View
 

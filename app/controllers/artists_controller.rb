@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     @asst_choreography = @artist.videos.merge(ArtistVideo.asst_choreography)
     @recommended_artists = []
     @videos.each do |vid|
-      @recommended_artists << vid.artists
+      @recommended_artists << vid.artists.shuffle.take(3)
     end
      @recommended_artists = @recommended_artists.flatten - [@artist]
   end

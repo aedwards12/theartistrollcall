@@ -4,13 +4,13 @@
     - choreographer.each do |choreo|
       =render partial: "shared/twitter_node", locals: {twitter_node: choreo}
 
-  %li.divider
+  %li
   %h4 Asst Choreographers
   - if assist_choreographers.any?
     - assist_choreographers.each do | twitter_node |
       =render partial: "shared/twitter_node", locals: {twitter_node: twitter_node}
 
-  %li.divider
+  %li
   %h4 Dancers
   - if twitter_list.any?
     - twitter_list.each do | twitter_node |
