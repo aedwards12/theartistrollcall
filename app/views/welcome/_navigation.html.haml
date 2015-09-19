@@ -2,7 +2,8 @@
   %ul.title-area
     %li.name
       %h1
-        = link_to 'WhoDatis', root_path
+        = link_to 'WhoDatis', root_path, class: "logo_color"
+      }
     %li.toggle-topbar.menu-icon
       = link_to 'menu', '#'
 
@@ -21,7 +22,7 @@
           %span#link-border-bottom
             = link_to omniauth_authorize_path(:user, :twitter), target: "_blank" do
               %i.fa.fa-twitter
-              Sign in with Twitter
+              Login
       %li
         %span#link-border-bottom
           = link_to 'ABOUT', about_path
@@ -32,7 +33,7 @@
       %li
         %span#link-border-bottom
           = link_to '#', :onclick => "$('#ytModal').foundation('reveal', 'open')" do
-            = fa_icon 'plus'
+            %i= fa_icon 'plus'
             YOUTUBE VIDEO
     %ul.left
       %li.has-form

@@ -15,7 +15,7 @@ html, body{
 }
 
 #wrapper_container{
-  width: 1400px;
+  width: 1200px;
   margin: 0 auto
 }
 .wrapper {
@@ -48,7 +48,7 @@ p{
 }
 
 #banner_section{
-  height: 600px;
+  height: 550px;
   padding: rem-calc(20 0);
   // background-color: #121212;
 
@@ -58,6 +58,10 @@ p{
   }
   h2{
     text-align: center;
+  }
+  .banner{
+    display:block;
+    margin:auto;
   }
 }
 
@@ -172,4 +176,20 @@ ul > h4{
 
 span{
   font-size: 1.2em;
+}
+
+.fa-plus{
+  color: orange;
+}
+
+.white_font{
+  color: #FCFCFC;
+}
+
+.top-bar .name h1 a{
+  color: rgb(255, 191, 73);
+}
+
+.banner_row{
+  background-color: rgba(0, 0, 0, 0.6);
 }
