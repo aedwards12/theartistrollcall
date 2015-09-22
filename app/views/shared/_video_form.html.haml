@@ -7,7 +7,7 @@
       %a.button.small-12{id:"tag_dropdown",data: {dropdown: "contentDrop", options: 'align:top'}, 'aria-controls': "contentDrop", 'aria-expanded': "false"}
         Suggest Artists
       #contentDrop.f-dropdown.content.large{data: {'dropdown-content'=>""}, 'aria-hidden': "true", 'tabindex': "-1"}
-        =form_tag video_tag_path(@video), method: :post, remote: true  do
+        =form_tag video_tag_path(@video), method: :post, remote: true  do |f|
           .row.radio-button-div
             =label_tag :artist_role, '1: Select Artist Type'
             .column.small-4.form-radio
@@ -20,9 +20,10 @@
               =radio_button_tag(:artist_role, "assist_choreographer")
               =label_tag(:artist_role, "Asst Choreographer")
           .row
-            =label_tag :dancer_tags, '2: Add twitter handle of Artist'
+            =label_tag :dancer_tags, '2: Add twitter handle of Artist ex.  @example'
             .small-9.columns.no_padding
-              =text_field_tag :dancer_tags, nil , placeholder: "Tag dancers, artist, choreographers"
+              / =select_tag :dancer_tags,  options_from_collection_for_select(Artist.all, "twitter_screen_name", Proc.new{|x| "@#{x.twitter_screen_name}"}), placeholder: "Tag dancers, artist, choreographers"
+              = text_field :dancer_tags, nil, id: "dancer_tags"
             .small-3.columns.no_padding
               =submit_tag  "Add Artist",  class: 'button postfix'
       .columns.small-12.video-stats

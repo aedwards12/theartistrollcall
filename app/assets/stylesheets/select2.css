@@ -2,13 +2,13 @@
 Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
 */
 .select2-container {
+  color: #272727;
   margin: 0 0 1rem 0;
   position: relative;
   vertical-align: middle;
   font-family: inherit;
   -webkit-appearance: none !important;
   font-size: 0.875rem;
-
   background: #fafafa url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgMTYgMyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+DQo=") no-repeat;
   background-position-x: 100%;
   background-position-y: center;
@@ -302,7 +302,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
-  font-size: 0.875rem;
+  font-size: 1rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 

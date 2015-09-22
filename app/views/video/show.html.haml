@@ -2,6 +2,8 @@
   =render partial: "shared/video_form", locals: {video: @video}
 :javascript
   $( document ).ready(function() {
+    var artists = JSON.parse("#{ j @artists.to_json}");
+
     $('.fa-arrow-circle-up').on('click', function(e){
       $.ajax({
         url: $(this).data('url')
@@ -11,6 +13,12 @@
       $.ajax({
         url: $(this).data('url')
         })
+    });
+
+    $('#dancer_tags').select2({
+      placeholder: "@example",
+      data: {results: artists },
+      tags: true
     });
   });
   twttr.widgets.load();

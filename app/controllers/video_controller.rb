@@ -3,9 +3,9 @@ class VideoController < ApplicationController
   before_action :set_twitter_client, only: [:tag]
 
   def tag
-    dancer_list = params[:dancer_tags]
+    dancer_list = params[:dancer_tags].first.split(",")
     @video.dancer_list.add(dancer_list, parse: true)
-    dancer_list.split(",").each do | dancer |
+    dancer_list.each do | dancer |
       @artist = Artist.where(twitter_screen_name: dancer).first
       begin
         @artist ||=@client.user(dancer.strip.downcase)
@@ -46,6 +46,10 @@ class VideoController < ApplicationController
 
   def edit
     load_video
+  end
+
+  def show
+    @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}"}}
   end
 
   def index
