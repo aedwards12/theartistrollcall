@@ -18,7 +18,13 @@
     $('#dancer_tags').select2({
       placeholder: "@example",
       data: {results: artists },
-      tags: true
+      tags: true,
+      createSearchChoice: function(term) {
+        return {
+            id: term,
+            text: term + ' (new)'
+        };
+      }
     });
   });
   twttr.widgets.load();
