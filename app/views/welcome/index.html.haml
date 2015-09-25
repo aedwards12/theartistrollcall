@@ -1,23 +1,20 @@
 .row
   #banner_section.small-12.columns
-    %h1 Wonder No more who those dope artists are... Watch & Connect Fast
+    %h1 Wonder No more who those dope artists are. Watch, Discover & Connect Fast
     .row.small-12.columns.banner_row
       = image_tag("whodatisbanner_3.png", class: "banner center")
-    / %h2 1: Add Video
-    / %h2 2: Suggest Artists
-    / %h2 3: Connect With New Artists
-
 
 .row.welcome-section
-  %h3.white_font FEATURED VIDEOS
-  - @featured_videos.each do |vid|
+  %h3.white_font Featured Artists
+  - @featured_artists.each do |art|
     .small-3.columns.left.transparent-box.spacing
-      .flex-video{id: "flex-video-#{vid.id}"}
-        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-      = vid.yt_author
-      = link_to video_path(vid) do
-        = fa_icon 'youtube-play'
-        View
+      = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
+      %h6.center= art.name
+      .button_container
+        %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
+          Follow @
+          ="#{art.twitter_screen_name}"
+
 .row
   #mid_welcome_section.small-12.columns
     %h6
@@ -25,7 +22,7 @@
 
 
 .row.welcome-section
-  %h3.white_font NEWEST VIDEOS
+  %h3.white_font Newest Videos
   - @newest_videos.each do |vid|
     .small-3.columns.left.transparent-box.spacing
       .flex-video{id: "flex-video-#{vid.id}"}
