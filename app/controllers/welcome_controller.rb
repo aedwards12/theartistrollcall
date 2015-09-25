@@ -2,10 +2,12 @@ require 'json'
 class WelcomeController < ApplicationController
 
   def index
-    @videos = Video.all.limit(8)
-    @videos.each(&:set_yt_data)
+    @newest_videos = Video.joins(:artist_videos).group("artist_videos.id, videos.id").
+    order("count(artist_videos.id) desc").
+    limit(4)
+    @newest_videos.each(&:set_yt_data)
     @featured_artists = Artist.all.shuffle.take(4)
-    @newest_videos = @videos.order(:created_at).reverse_order.limit(4)
+    # @newest_videos = @videos.order(:created_at).reverse_order.limit(4)
   end
 
   def about
