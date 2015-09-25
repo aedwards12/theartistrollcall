@@ -2,7 +2,7 @@ require 'json'
 class WelcomeController < ApplicationController
 
   def index
-    @newest_videos = Video.joins(:artist_videos).group("artist_videos.id, videos.id").
+    @newest_videos = Video.select("videos.*").joins(:artist_videos).group("videos.id").
     order("count(artist_videos.id) desc").
     limit(4)
     @newest_videos.each(&:set_yt_data)
