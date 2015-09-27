@@ -18,10 +18,8 @@ class VideoController < ApplicationController
             art.name = @artist.name
           end
         end
-      ArtistVideo.where(artist: @artist, video: @video).first_or_create do |art|
-        art.artist_role = params[:artist_role]
-        art.save
-      end
+        ArtistVideo.where(artist: @artist, video: @video, artist_role: ArtistVideo::ARTIST_ROLE[ params[:artist_role].to_sym]).first_or_create
+
       rescue Twitter::Error
 
       end
@@ -76,9 +74,9 @@ class VideoController < ApplicationController
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
     artists = @video.artists
-    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
-    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
-    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
+    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).uniq
+    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).uniq
+    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).uniq
   end
 
   def all_videos
