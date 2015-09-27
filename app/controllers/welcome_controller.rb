@@ -7,7 +7,6 @@ class WelcomeController < ApplicationController
     limit(4)
     @newest_videos.each(&:set_yt_data)
     @featured_artists = Artist.all.shuffle.take(4)
-    # @newest_videos = @videos.order(:created_at).reverse_order.limit(4)
   end
 
   def about

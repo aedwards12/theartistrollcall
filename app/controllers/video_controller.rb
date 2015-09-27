@@ -49,7 +49,7 @@ class VideoController < ApplicationController
   end
 
   def show
-    @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}"}}
+    @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
   end
 
   def index
