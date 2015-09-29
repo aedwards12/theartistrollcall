@@ -22,7 +22,10 @@
       .columns.small-3.left.transparent-box.spacing
         .flex-video{id: "flex-video-#{vid.id}"}
           %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-        = link_to 'View', video_path(vid)
+
+        = link_to video_path(vid), class: 'button video-button' do
+          = fa_icon 'youtube-play'
+          Watch & Discover
 
 - if @asst_choreography.any?
   .row
