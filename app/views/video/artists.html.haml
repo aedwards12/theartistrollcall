@@ -1,0 +1,66 @@
+.row.transparent-box
+  .columns.small-4.left
+    .flex-video{id: "flex-video-#{@video.id}"}
+      %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{@video.url}", :frameborder=>"0"}
+
+  .columns.small-8.left
+    %ul.inline-list
+      %li.source-font{id: "video-author-#{@video.id}"}
+        %span
+          %h6 Channel:
+          = @video.yt_author
+
+      %li.source-font{id: "video-count-#{@video.id}"}
+        %span
+          %h6 Views:
+          = number_to_human(@video.yt_count)
+
+      %li.source-font
+        %span
+          %h6 Published By:
+          = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+
+      %li.source-font{id: "video-description-#{@video.id}"}
+        %span
+          %h6 Description:
+          = @video.yt_description
+
+
+
+
+
+
+.row.welcome-section
+  %h3.white_font Choreographers
+  - @choreographer.each do |art|
+    .small-3.columns.left.transparent-box.spacing
+      = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
+      %h6.center= art.name
+      .button_container
+        %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
+          Follow @
+          ="#{art.twitter_screen_name}"
+
+- if @asst_choreographers.any?
+  .row.welcome-section
+    %h3.white_font Asst Choreographers
+    - @asst_choreographers.each do |art|
+      .small-3.columns.left.transparent-box.spacing
+        = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
+        %h6.center= art.name
+        .button_container
+          %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
+            Follow @
+            ="#{art.twitter_screen_name}"
+
+
+.row.welcome-section
+  %h3.white_font Dancers
+  - @dancers.each do |art|
+    .small-3.columns.left.transparent-box.spacing
+      = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
+      %h6.center= art.name
+      .button_container
+        %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
+          Follow @
+          ="#{art.twitter_screen_name}"
