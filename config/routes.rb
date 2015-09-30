@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'twitter_callback_url' => 'welcome#twitter_callback_url'
   get 'about' => 'welcome#about'
   resources :video do
+    get :artists, on: :member
     post :tag
   end
 

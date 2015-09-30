@@ -1,6 +1,6 @@
 %ul
-  %h4
-    Choreographers
+  = link_to 'View All Artists', artists_video_path(@video.id)
+  %h4 Choreographer
   - if choreographer.any?
     - choreographer.each do |choreo|
       =render partial: "shared/twitter_node", locals: {twitter_node: choreo}

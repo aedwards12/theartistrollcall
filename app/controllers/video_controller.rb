@@ -64,6 +64,10 @@ class VideoController < ApplicationController
     end
   end
 
+  def artists
+
+  end
+
   private
 
   def new_video
