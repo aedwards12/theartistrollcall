@@ -7,7 +7,8 @@ class ArtistsController < ApplicationController
   end
 
   def load_artist
-    @artist =  Artist.find(params[:id])
+    @artist =  Artist.where(id: params[:id]).first
+    @artist ||= Artist.where(twitter_screen_name: params[:id]).first
     @videos = @artist.videos
 
     @dancer_videos = @artist.videos.merge(ArtistVideo.dancer)
