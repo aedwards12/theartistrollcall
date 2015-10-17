@@ -27,11 +27,6 @@
             %h6 Description:
             = @video.yt_description
 
-
-
-
-
-
 .row.welcome-section
   %h3.white_font Choreographers
   - @choreographer.each do |art|
@@ -54,7 +49,6 @@
           %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
             Follow @
             ="#{art.twitter_screen_name}"
-
 
 .row.welcome-section
   %h3.white_font Dancers

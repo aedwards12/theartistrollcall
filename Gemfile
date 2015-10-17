@@ -51,6 +51,7 @@ gem 'omniauth-twitter'
 gem "omniauth-google-oauth2"
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
+gem 'meta-tags'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
