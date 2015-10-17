@@ -22,6 +22,9 @@ MetaTags.config do |config|
   # This allows for example to set I18n aware defaults.
   #
   config.defaults = lambda do
-    { title: "WhoDatIsApp" }
+    { title: "WhoDatIsApp",
+      description: "WhoDatIs helps you discover your favorite dancers and choreographers. We provide a platform to share dance videos with tags linking directly to dancers’ and choreographers’ social media profiles"
+
+     }
   end
 end

@@ -2,6 +2,8 @@ class ArtistsController < ApplicationController
 
   def show
     load_artist
+    set_meta_tag(:title, "Whodatisapp | #{@artist.twitter_screen_name}")
+    set_meta_tag(:image, @artist.twitter_img_url.split('normal').join('200x200'))
   end
 
   def load_artist

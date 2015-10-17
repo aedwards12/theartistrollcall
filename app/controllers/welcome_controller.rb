@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
   end
 
   def about
+    set_meta_tag(:title, "Whodatisapp | About")
     @contact_form = ContactForm.new
   end
 

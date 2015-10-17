@@ -47,10 +47,13 @@ class VideoController < ApplicationController
   end
 
   def show
+    set_meta_tag(:title, "Whodatisapp | #{@video.yt_title}")
+    set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
   end
 
   def index
+    set_meta_tag(:title, "Whodatisapp | Videos Collection")
     all_videos
     if params["q"]
       video_search = "%#{params["q"]}%"
@@ -65,7 +68,8 @@ class VideoController < ApplicationController
   end
 
   def artists
-
+    set_meta_tag(:title, "Whodatisapp | View All Artists | #{@video.yt_title}")
+    set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
   end
 
   private
