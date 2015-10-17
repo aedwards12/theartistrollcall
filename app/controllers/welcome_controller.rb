@@ -28,7 +28,7 @@ class WelcomeController < ApplicationController
     #   format.json { render json: data_array }
     # end
 
-    @artists = Artist.where('twitter_screen_name ILIKE ?', "%#{params["q"]}%" ).select(['id, twitter_screen_name As text'])
+    @artists = Artist.where('twitter_screen_name ILIKE ? OR name ILIKE ?', "%#{params["q"]}%", "%#{params["q"]}%" ).map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
     respond_to do |format|
       format.json { render json: @artists}
     end
