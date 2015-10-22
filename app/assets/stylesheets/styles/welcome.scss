@@ -14,10 +14,7 @@ html, body{
   height: 100%;
 }
 
-#wrapper_container{
-  width: 1200px;
-  margin: 0 auto
-}
+
 .wrapper {
   min-height: 100%;
   height: auto !important;
@@ -49,6 +46,11 @@ p{
 
 #banner_section{
   height: 550px;
+
+  @media #{$small-only} {
+   height: 350px;
+  }
+
   padding: rem-calc(20 0);
   // background-color: #121212;
 
@@ -126,6 +128,16 @@ ul li{
   width: 23.5%;
   margin-bottom: 5px;
   padding-top: 10px;
+
+  @media #{$small-up} {
+    width: 100%;
+  }
+
+  @media #{$medium-up} {
+    width: 47%;
+  }
+
+
 }
 
 .footer{

@@ -7,7 +7,7 @@
 .row.welcome-section
   %h3.white_font Featured Artists
   - @featured_artists.each do |art|
-    .small-3.columns.left.transparent-box.spacing
+    .small-12.medium-6.large-3.columns.left.transparent-box.spacing
       = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
       %h6.center= art.name
       .button_container
