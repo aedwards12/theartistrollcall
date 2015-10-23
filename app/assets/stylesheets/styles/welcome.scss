@@ -130,11 +130,15 @@ ul li{
   padding-top: 10px;
 
   @media #{$small-up} {
-    width: 100%;
+    width: 90%;
+    margin-left: 15px;
   }
 
   @media #{$medium-up} {
     width: 47%;
+  }
+  @media #{$large-up} {
+    width: 23%;
   }
 
 
@@ -225,6 +229,10 @@ span{
   padding-top: 10px;
   padding-left: 10px;
   margin-bottom: 5px;
+  @media #{$medium-up} {
+    width: 31.5%;
+    display: inline-block;
+  }
 }
 .scrollable{
   overflow-y:auto;

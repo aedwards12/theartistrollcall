@@ -1,4 +1,4 @@
-.columns.small-12.medium-9
+.columns.small-12.large-9
   .row.transparent-box
     .columns.small-12.medium-11.small-centered
       .flex-video{id: "flex-video-#{@video.id}"}
@@ -44,14 +44,14 @@
               %span
                 %h6 Published By:
                 = "#{time_ago_in_words(@video.yt_pub_date)} ago"
-        .row.description-stats
+        .row.description-stats.show-for-medium-up
           %ul
             %li.source-font{id: "video-description-#{@video.id}"}
               %span
                 %h6 Description:
               %p= @video.yt_description
 
-.columns.small-12.medium-3
+.columns.small-12.large-3
   #twitter_list.small-12.columns.scrollable
     %p Up Vote to approve artists in the video or to Down vote artists that are not in video
     =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer, assist_choreographers: @asst_choreographers}
