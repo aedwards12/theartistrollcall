@@ -233,6 +233,10 @@ span{
     width: 31.5%;
     display: inline-block;
   }
+  @media #{$large-up} {
+    width: 100%;
+    display: block;
+  }
 }
 .scrollable{
   overflow-y:auto;
