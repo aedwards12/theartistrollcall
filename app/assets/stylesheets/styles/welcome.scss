@@ -22,6 +22,20 @@ html, body{
   margin: 0 auto -75px auto;
 }
 
+#wrapper_container {
+  @media #{$small-up}{
+    width: 100%;
+    margin: 0 auto
+  }
+
+  @media #{$large-up}{
+    width: 1200px;
+    margin: 0 auto
+  }
+}
+
+
+
 h1,
 h2,
 h3,
@@ -65,10 +79,6 @@ p{
     display:block;
     margin:auto;
   }
-}
-
-.transparent-box{
-  text-align: center;
 }
 
 .center{
@@ -214,6 +224,7 @@ span{
 
 .white_font{
   color: #FCFCFC;
+  padding-left: 0.6em;
 }
 
 .top-bar .name h1 a{

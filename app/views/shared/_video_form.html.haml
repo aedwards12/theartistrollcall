@@ -11,13 +11,13 @@
         =form_tag video_tag_path(@video), method: :post, remote: true  do |f|
           .row.radio-button-div
             =label_tag :artist_role, '1: Select Artist Type'
-            .column.small-4.form-radio
+            .column.small-12.medium-4.form-radio
               =radio_button_tag(:artist_role, "dancer", required: true)
               =label_tag(:artist_role, "Dancer")
-            .column.small-4.form-radio
+            .column.small-12.medium-4.form-radio
               =radio_button_tag(:artist_role, "choreographer")
               =label_tag(:artist_role, "Choreographer")
-            .column.small-4.form-radio
+            .column.small-12.medium-4.form-radio
               =radio_button_tag(:artist_role, "assist_choreographer")
               =label_tag(:artist_role, "Asst Choreographer")
           .row

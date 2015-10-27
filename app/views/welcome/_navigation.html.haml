@@ -35,7 +35,7 @@
           = link_to '#', :onclick => "$('#ytModal').foundation('reveal', 'open')" do
             %i= fa_icon 'plus'
             Youtube Video
-    %ul.left
+    %ul.left.show-for-medium-up
       %li.has-form
         .row.collapse.search
           =render partial: "welcome/search_form"

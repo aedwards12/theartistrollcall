@@ -57,6 +57,9 @@
       right: 15px;
       top: 50%;
       margin-top: -16px;
+      @media #{$small-up}{
+        font-size: 2em;
+      }
       padding-left: 40px; }
       .top-bar .toggle-topbar.menu-icon a {
         text-indent: -48px;
@@ -346,6 +349,15 @@
 
 #right_section{
   padding-right:2em;
+
+  @media #{$small-up}{
+    padding-right:0em;
+
+    li{
+      padding-left: 1em;
+    }
+  }
+
 }
 
 ul{
