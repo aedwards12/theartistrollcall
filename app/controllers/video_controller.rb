@@ -1,6 +1,6 @@
 class VideoController < ApplicationController
+  before_action :set_twitter_client, only: [:tag, :show]
   before_action :load_video, except: [:create, :index]
-  before_action :set_twitter_client, only: [:tag]
 
   def tag
     dancer_list = params[:dancer_tags].first.split(",")
@@ -25,9 +25,9 @@ class VideoController < ApplicationController
       end
     end
     artists = @video.artists
-    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id))
-    @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id))
-    @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id))
+    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
+    @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
+    @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
   end
 
   def new
@@ -82,9 +82,9 @@ class VideoController < ApplicationController
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
     artists = @video.artists
-    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).uniq
-    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).uniq
-    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).uniq
+    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
+    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
+    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
   end
 
   def all_videos

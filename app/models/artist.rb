@@ -8,4 +8,13 @@ class Artist < ActiveRecord::Base
   def type
     self.class.name
   end
+
+  def set_twitter_data(client)
+    twitter_url = TwitterApi.new(twitter_id).twitter_search_url
+
+    ApiRequest.cache(twitter_url, TwitterApi::CACHE_POLICY, id,'Twitter', client) do
+      # do stuff here if needed
+    end
+
+  end
 end

@@ -1,10 +1,15 @@
 class ArtistsController < ApplicationController
+  before_action :set_twitter_client, only: [:show]
+
 
   def show
     load_artist
+    @artist.set_twitter_data(@client)
     set_meta_tag(:title, "Whodatisapp | #{@artist.twitter_screen_name}")
     set_meta_tag(:image, @artist.twitter_img_url.split('normal').join('200x200'))
   end
+
+  private
 
   def load_artist
     @artist =  Artist.where(id: params[:id]).first
@@ -19,6 +24,10 @@ class ArtistsController < ApplicationController
       @recommended_artists << vid.artists
     end
     @recommended_artists = @recommended_artists.flatten - [@artist]
-    @recommended_artists = @recommended_artists.shuffle.take(3)
+    @recommended_artists = @recommended_artists.shuffle.take(3).each{ |art| art.set_twitter_data(@client) }
+  end
+
+  def set_twitter_client
+    twitter_client
   end
 end

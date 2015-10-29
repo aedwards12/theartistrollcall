@@ -1,12 +1,13 @@
 require 'json'
 class WelcomeController < ApplicationController
+  before_action :set_twitter_client, only: [:index]
 
   def index
     @newest_videos = Video.select("videos.*").joins(:artist_videos).group("videos.id").
     order("count(artist_videos.id) desc").
     limit(4)
     @newest_videos.each(&:set_yt_data)
-    @featured_artists = Artist.all.shuffle.take(4)
+    @featured_artists = Artist.all.shuffle.take(4).each{ |art| art.set_twitter_data(@client) }
   end
 
   def about
@@ -33,5 +34,11 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.json { render json: @artists}
     end
+  end
+
+  private
+
+  def set_twitter_client
+    twitter_client
   end
 end
