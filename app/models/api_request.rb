@@ -13,9 +13,12 @@ class ApiRequest < ActiveRecord::Base
     if new_record? || updated_at < cache_policy.call
       if type == 'Twitter'
         artist = Artist.find id
-        tw_node = client.user(artist.twitter_screen_name)
-        artist.twitter_img_url = tw_node.profile_image_url.to_s
-        artist.save
+        begin
+          tw_node = client.user(artist.twitter_screen_name)
+          artist.twitter_img_url = tw_node.profile_image_url.to_s
+          artist.save
+        rescue Twitter::Error
+        end
       else
         vid = Video.find id
         yt_video = Yt::Video.new url: url
