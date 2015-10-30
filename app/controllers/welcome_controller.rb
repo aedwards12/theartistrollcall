@@ -31,7 +31,6 @@ class WelcomeController < ApplicationController
     # end
 
     @artists = Artist.where('twitter_screen_name ILIKE ? OR name ILIKE ?', "%#{params["q"]["term"]}%", "%#{params["q"]["term"]}%" ).map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
-    logger.ap @artists
     respond_to do |format|
       format.json { render json: @artists}
     end
