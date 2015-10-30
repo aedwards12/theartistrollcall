@@ -43,7 +43,7 @@ gem 'faker'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'twitter'
-gem "select2-rails"
+gem 'select2-rails', '3.5.9.1'
 gem "oauth"
 gem 'dotenv-rails', :groups => [:development, :test, :production]
 gem 'omniauth'

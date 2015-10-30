@@ -1,8 +1,7 @@
 .small-12.columns
   .row.collapse.prefix-round
-    =form_tag  welcome_search_path, method: :post do
-      .small-9.columns
-        =text_field_tag :search, nil
+    .small-9.columns
+      =text_field_tag :search, nil
 
 :javascript
   $(document).ready(function() {

@@ -24,7 +24,7 @@ class ArtistsController < ApplicationController
       @recommended_artists << vid.artists
     end
     @recommended_artists = @recommended_artists.flatten - [@artist]
-    @recommended_artists = @recommended_artists.shuffle.take(3).each{ |art| art.set_twitter_data(@client) }
+    @recommended_artists = @recommended_artists.uniq.shuffle.take(3).each{ |art| art.set_twitter_data(@client) }
   end
 
   def set_twitter_client
