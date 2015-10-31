@@ -16,7 +16,7 @@
 
 - if @choreography_videos.any?
   .row
-    %h5
+    %h5.white_font
       = "#{@artist.twitter_screen_name}'s choreography"
     - @choreography_videos.each do |vid|
       .columns.small-12.medium-3.large-3.transparent-box.spacing
@@ -29,7 +29,7 @@
 
 - if @asst_choreography.any?
   .row
-    %h5
+    %h5.white_font
       = "#{@artist.twitter_screen_name}'s asst choreography"
     - @asst_choreography.each do |vid|
       .columns.small-12.medium-7.large-3.left.transparent-box.spacing
@@ -39,7 +39,7 @@
 
 - if @dancer_videos.any?
   .row
-    %h5
+    %h5.white_font
       = "#{@artist.twitter_screen_name}'s dancing"
     - @dancer_videos.each do |vid|
       .columns.small-12.medium-7.large-3.left.transparent-box.spacing
