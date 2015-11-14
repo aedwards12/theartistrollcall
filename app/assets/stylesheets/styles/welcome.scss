@@ -265,7 +265,13 @@ span{
 
 .artists-page-description{
   height: 130px;
-  overflow-y:auto
+  overflow-y:auto;
+  @media #{$medium-up} {
+    height: 150px;
+  }
+  @media #{$large-up} {
+    height: 200px;
+  }
 }
 
 .video-stats-container{
