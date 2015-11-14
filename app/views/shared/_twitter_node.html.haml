@@ -1,14 +1,14 @@
 %li.dancer_list
-  .artist_votes
-    - if @video
-      .vote_row
-        =link_to  "#" do
-          %i.fa.fa-arrow-circle-up.vote-in{id: "artist_#{twitter_node.id}_in", data: {url: up_vote_path(twitter_node.id, video_id: @video.id)}}
-      .vote_row{id: "artist_#{twitter_node.id}_count"}
-        = get_votes_for_artist(twitter_node.id, @video.id)
-      .vote_row
-        =link_to "#" do
-          %i.fa.fa-arrow-circle-down.vote-out{id: "artist_#{twitter_node.id}_out", data: {url: down_vote_path(twitter_node.id, video_id: @video.id)}}
+  / .artist_votes
+  /   - if @video
+  /     .vote_row
+  /       =link_to  "#" do
+  /         %i.fa.fa-arrow-circle-up.vote-in{id: "artist_#{twitter_node.id}_in", data: {url: up_vote_path(twitter_node.id, video_id: @video.id)}}
+  /     .vote_row{id: "artist_#{twitter_node.id}_count"}
+  /       = get_votes_for_artist(twitter_node.id, @video.id)
+  /     .vote_row
+  /       =link_to "#" do
+  /         %i.fa.fa-arrow-circle-down.vote-out{id: "artist_#{twitter_node.id}_out", data: {url: down_vote_path(twitter_node.id, video_id: @video.id)}}
   =link_to image_tag(twitter_node.twitter_img_url), artist_path(twitter_node.id), class: 'th', id: "show-artist-#{twitter_node.id}"
 
   =link_to twitter_node.name, artist_path(twitter_node.id), class: "artist_link"

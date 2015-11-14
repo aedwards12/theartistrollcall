@@ -14,6 +14,15 @@ private
     end
   end
 
+  def instagram_client
+    @insta_client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["CONSUMER_KEY"]
+      config.consumer_secret     = ENV["CONSUMER_SECRET"]
+      config.access_token        = ENV["ACCESS_TOKEN"]
+      config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
+    end
+  end
+
   # Exchange your oauth_token and oauth_token_secret for an AccessToken instance.
   def prepare_access_token(oauth_token, oauth_token_secret)
       consumer = OAuth::Consumer.new( ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"], { :site => "https://api.twitter.com", :scheme => :header })
