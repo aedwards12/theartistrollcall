@@ -1,9 +1,9 @@
-.row.transparent-box
-  .columns.small-4.left
+.row.transparent-box.video-stats-container
+  .columns.small-12.medium-4.left
     .flex-video{id: "flex-video-#{@video.id}"}
       %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{@video.url}", :frameborder=>"0"}
 
-  .columns.small-8.left
+  .columns.small-12.medium-8.left
     .row
       %ul.inline-list
         %li.source-font{id: "video-author-#{@video.id}"}
@@ -20,7 +20,7 @@
           %span
             %h6 Published By:
             = "#{time_ago_in_words(@video.yt_pub_date)} ago"
-    .row.description-stats
+    .row.description-stats.artists-page-description
       %ul.inline-list
         %li.source-font{id: "video-description-#{@video.id}"}
           %span
