@@ -50,13 +50,7 @@ class VideoController < ApplicationController
     set_meta_tag(:title, "Whodatisapp | #{@video.yt_title}")
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
     set_meta_tag(:card, "summary_large_image")
-    # set_meta_tag(
-    #   :image, {
-    #     _:      "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg",
-    #     width:  100,
-    #     height: 100,
-    #   }
-    # )
+    set_meta_tag(:site, "@AnthonyEdwardsj")
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
   end
 
