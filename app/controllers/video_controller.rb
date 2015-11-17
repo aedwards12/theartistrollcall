@@ -49,7 +49,7 @@ class VideoController < ApplicationController
   def show
     set_meta_tag(:title, "Whodatisapp | #{@video.yt_title}")
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
-    set_meta_tag(:card, "photo")
+    set_meta_tag(:card, "summary_large_image")
     # set_meta_tag(
     #   :image, {
     #     _:      "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg",
