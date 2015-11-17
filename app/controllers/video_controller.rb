@@ -52,6 +52,8 @@ class VideoController < ApplicationController
     set_meta_tag(:card, "summary_large_image")
     set_meta_tag(:site, "@AnthonyEdwardsj")
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
+    twitter_text =  "Checkout Featured dancers #{@dancers.map{|d| "@" + d.twitter_screen_name}.join(', ')}"
+    @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
   end
 
   def index

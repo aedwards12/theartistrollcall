@@ -47,7 +47,7 @@
             %li
               .fb-share-button{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button"} }
             %li
-              %a.twitter-share-button{href: "https://twitter.com/intent/tweet?text=Checkout%20the%20video"}
+              %a.twitter-share-button{href: "https://twitter.com/intent/tweet?text=#{@twitter_encoded_string}"}
                 Tweet
         .row.description-stats.show-for-medium-up
           %ul
