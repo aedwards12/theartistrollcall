@@ -51,8 +51,9 @@ class VideoController < ApplicationController
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
     set_meta_tag(:card, "summary_large_image")
     set_meta_tag(:site, "@AnthonyEdwardsj")
+
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
-    twitter_text =  "Checkout Featured dancers #{(@choreographer | @asst_choreographers | @dancers).
+    twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{(@asst_choreographers | @dancers).
         map{|d| "@" + d.twitter_screen_name}.join(', ')}"
     @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
   end
@@ -75,6 +76,9 @@ class VideoController < ApplicationController
   def artists
     set_meta_tag(:title, "Whodatisapp | View All Artists | #{@video.yt_title}")
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
+    twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{(@asst_choreographers | @dancers).
+        map{|d| "@" + d.twitter_screen_name}.join(', ')}"
+    @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
   end
 
   private

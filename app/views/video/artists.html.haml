@@ -5,7 +5,7 @@
 
   .columns.small-12.large-8.left
     .row
-      %ul.inline-list
+      %ul.inline-list.facebook-button
         %li.source-font{id: "video-author-#{@video.id}"}
           %span
             %h6 Channel:
@@ -20,6 +20,13 @@
           %span
             %h6 Published By:
             = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+
+        %li.facebook-button
+          .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
+
+        %li.tweet-button
+          %a.twitter-share-button{href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 141)}"}
+            Tweet
     .row.description-stats.artists-page-description
       %ul.inline-list
         %li.source-font{id: "video-description-#{@video.id}"}
