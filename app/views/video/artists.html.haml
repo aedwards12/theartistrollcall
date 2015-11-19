@@ -20,7 +20,8 @@
           %span
             %h6 Published By:
             = "#{time_ago_in_words(@video.yt_pub_date)} ago"
-
+    .row.share-row
+      %ul.inline-list.facebook-button
         %li.facebook-button
           .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
 

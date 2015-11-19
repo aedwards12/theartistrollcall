@@ -28,8 +28,8 @@
               =submit_tag  "Add Artist",  class: 'button postfix'
 
       .columns.small-12.video-stats
-        .row
-          %ul.inline-list.facebook-button
+        .row.yt-stats
+          %ul.inline-list.no-bottom-margin
             %li.source-font{id: "video-author-#{@video.id}"}
               %span
                 %h6 Channel:
@@ -44,6 +44,8 @@
               %span
                 %h6 Published By:
                 = "#{time_ago_in_words(@video.yt_pub_date)} ago"
+        .row.share-row
+          %ul.inline-list.facebook-button
             %li.facebook-button
               .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
             %li.tweet-button
