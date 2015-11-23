@@ -9,11 +9,17 @@
   /     .vote_row
   /       =link_to "#" do
   /         %i.fa.fa-arrow-circle-down.vote-out{id: "artist_#{twitter_node.id}_out", data: {url: down_vote_path(twitter_node.id, video_id: @video.id)}}
-  =link_to image_tag(twitter_node.twitter_img_url), artist_path(twitter_node.id), class: 'th', id: "show-artist-#{twitter_node.id}"
+  - if twitter_node.twitter_screen_name
+    =link_to image_tag(twitter_node.twitter_img_url), artist_path(twitter_node.id), class: 'th', id: "show-artist-#{twitter_node.id}"
 
-  =link_to twitter_node.name, artist_path(twitter_node.id), class: "artist_link"
-  <br>
-  %a.twitter-follow-button{ href: "https://twitter.com/#{twitter_node.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
-    Follow @
-    ="#{twitter_node.twitter_screen_name}"
+    =link_to twitter_node.name, artist_path(twitter_node.id), class: "artist_link"
+    <br>
+    %a.twitter-follow-button{ href: "https://twitter.com/#{twitter_node.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
+      Follow @
+      ="#{twitter_node.twitter_screen_name}"
+  - else
+    =link_to image_tag(twitter_node.instagram_img_url), artist_path(twitter_node.id), class: 'th', id: "show-artist-#{twitter_node.id}"
+
+    =link_to twitter_node.instagram_full_name, artist_path(twitter_node.id), class: "artist_link"
+    %span.ig-follow{ data: {id: twitter_node.instagram_id, handle: twitter_node.instagram_user_name, count: "false", size:"small", username:"true"}}
 

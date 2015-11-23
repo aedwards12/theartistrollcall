@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
 
-
   get 'contact_form/new'
-
   get 'contact_form/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'welcome/search' => 'welcome#search'
   get 'twitter_callback_url' => 'welcome#twitter_callback_url'
+  get 'instagra,_callback_url' => 'welcome#instagram_callback_url'
   get 'about' => 'welcome#about'
   resources :video do
     get :artists, on: :member

@@ -27,8 +27,13 @@ input[type=text]{
 form > input{
   font-size: 1.3em;
 }
+
 #video_url, #search{
    font-size: 1.3em;
+}
+
+#video_url input[type=text] {
+  color: orange;
 }
 
 #search{

@@ -34,6 +34,11 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def instagram_callback_url
+    binding.pry
+    ''
+  end
+
   private
 
   def set_twitter_client
