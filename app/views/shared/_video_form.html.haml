@@ -49,7 +49,7 @@
             %li.facebook-button
               .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
             %li.tweet-button
-              %a.twitter-share-button{count: 'none',href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 140)}", related: (@choreographer | @asst_choreographers | @dancers).map{|d| d.twitter_screen_name}.join(', ')}
+              %a.twitter-share-button{count: 'none',href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 340)}", related: (@choreographer | @asst_choreographers | @dancers).map{|d| d.twitter_screen_name}.join(', ')}
                 Tweet
         .row.description-stats.show-for-medium-up
           %ul
