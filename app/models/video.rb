@@ -4,6 +4,7 @@ class Video < ActiveRecord::Base
 
   has_many :artist_videos
   has_many :artists, through: :artist_videos
+  has_many :roles
 
   YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
 

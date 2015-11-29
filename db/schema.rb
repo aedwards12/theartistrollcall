@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151017035730) do
+ActiveRecord::Schema.define(version: 20151129011813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151017035730) do
     t.string   "artist_role"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "role_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -43,6 +44,10 @@ ActiveRecord::Schema.define(version: 20151017035730) do
     t.string   "state"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "instagram_user_name"
+    t.string   "instagram_img_url"
+    t.string   "instagram_id"
+    t.string   "instagram_full_name"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -65,6 +70,13 @@ ActiveRecord::Schema.define(version: 20151017035730) do
     t.text     "meta_keywords"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.integer  "video_id"
+    t.string   "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

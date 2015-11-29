@@ -18,3 +18,11 @@
   - if twitter_list.any?
     - twitter_list.each do | artist |
       =render partial: "shared/twitter_node", locals: {twitter_node: artist}
+
+  - @artist_videos.each do |role, arts_vids|
+    - next if role.nil?
+    %li
+    %h4
+      = role.label.capitalize
+      - arts_vids.each do | a_v |
+        =render partial: "shared/twitter_node", locals: {twitter_node: a_v.artist}

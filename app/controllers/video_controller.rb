@@ -52,6 +52,8 @@ class VideoController < ApplicationController
     set_meta_tag(:card, "summary_large_image")
     set_meta_tag(:site, "@AnthonyEdwardsj")
 
+     # vv.artist_videos.includes(:artist).group_by{|a| a.role}
+
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
     twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{@dancers.
         map{|d| "@" + d.twitter_screen_name}.join(', ')}"
@@ -90,6 +92,12 @@ class VideoController < ApplicationController
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
+    @artist_videos = @video.artist_videos.includes(:artist)
+    @artist_videos.each do  |a_v|
+      a_v.artist.set_twitter_data(@client)
+    end
+    @artist_videos = @artist_videos.group_by{ |a| a.role }
+    logger.ap @artist_videos
     artists = @video.artists
     @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
     @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
