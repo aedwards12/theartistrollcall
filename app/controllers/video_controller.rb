@@ -18,7 +18,9 @@ class VideoController < ApplicationController
             art.name = @artist.name
           end
         end
-        ArtistVideo.where(artist: @artist, video: @video, artist_role: ArtistVideo::ARTIST_ROLE[ params[:artist_role].to_sym]).first_or_create
+
+        @role = Role.where(label: params[:artist_role].first).first_or_create
+        ArtistVideo.where(artist: @artist, video: @video, role: @role).first_or_create
 
       rescue Twitter::Error
 
@@ -52,8 +54,7 @@ class VideoController < ApplicationController
     set_meta_tag(:card, "summary_large_image")
     set_meta_tag(:site, "@AnthonyEdwardsj")
 
-     # vv.artist_videos.includes(:artist).group_by{|a| a.role}
-
+    @artist_vid_labels = @artist_videos.map{ |key, v| {id: key.downcase, text: key.capitalize}} | Role:: DEFAULT_LABELS
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
     twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{@dancers.
         map{|d| "@" + d.twitter_screen_name}.join(', ')}"
@@ -92,13 +93,14 @@ class VideoController < ApplicationController
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
+
     @artist_videos = @video.artist_videos.includes(:artist)
     @artist_videos.each do  |a_v|
       a_v.artist.set_twitter_data(@client)
     end
-    @artist_videos = @artist_videos.group_by{ |a| a.role }
-    logger.ap @artist_videos
+    @artist_videos = @artist_videos.select{|a| a.role != nil}.group_by{ |a| a.role.label.downcase }
     artists = @video.artists
+
     @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
     @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
     @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq

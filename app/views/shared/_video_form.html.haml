@@ -9,17 +9,10 @@
 
       #contentDrop.f-dropdown.content.large{data: {'dropdown-content'=>""}, 'aria-hidden': "true", 'tabindex': "-1"}
         =form_tag video_tag_path(@video), method: :post, remote: true  do |f|
-          .row.radio-button-div
-            =label_tag :artist_role, '1: Select Artist Type'
-            .column.small-12.medium-4.form-radio
-              =radio_button_tag(:artist_role, "dancer", required: true)
-              =label_tag(:artist_role, "Dancer")
-            .column.small-12.medium-4.form-radio
-              =radio_button_tag(:artist_role, "choreographer")
-              =label_tag(:artist_role, "Choreographer")
-            .column.small-12.medium-4.form-radio
-              =radio_button_tag(:artist_role, "assist_choreographer")
-              =label_tag(:artist_role, "Asst Choreographer")
+          .row
+            =label_tag :artist_role, '1: Select or Create Artist Role'
+            .small-12.columns.no_padding
+              = text_field :artist_role, nil, id: "artist_role"
           .row
             =label_tag :dancer_tags, '2: Add twitter handle of Artist ex.  @example'
             .small-9.columns.no_padding

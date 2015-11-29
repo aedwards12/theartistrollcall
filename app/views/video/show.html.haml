@@ -3,6 +3,7 @@
 :javascript
   $( document ).ready(function() {
     var artists = JSON.parse("#{ j @artists.to_json}");
+    var labels = JSON.parse("#{ j @artist_vid_labels.to_json}");
 
     $('.fa-arrow-circle-up').on('click', function(e){
       $.ajax({
@@ -13,6 +14,22 @@
       $.ajax({
         url: $(this).data('url')
         })
+    });
+
+    $('#artist_role').select2({
+      placeholder: "Choreographer, Dancer, Producer, Artistic Director",
+      data: {results: labels},
+      maximumSelectionLength: 1,
+      tags: true,
+      formatSelectionTooBig: function (limit) {
+        return 'Too many selected items';
+      },
+      createSearchChoice: function(term) {
+        return {
+            id: term,
+            text: term + ' (new)'
+        };
+      }
     });
 
     $('#dancer_tags').select2({

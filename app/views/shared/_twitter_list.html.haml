@@ -1,28 +1,8 @@
 %ul
   = link_to 'View All Artists', artists_video_path(@video.id)
-  %h4 Choreographer
-  - if choreographer.any?
-    - choreographer.each do |choreo|
-      =render partial: "shared/twitter_node", locals: {twitter_node: choreo}
-
-  - if assist_choreographers.any?
-    %li
-    %h4 Asst Choreographers
-    - if assist_choreographers.any?
-      - assist_choreographers.each do | artist |
-        =render partial: "shared/twitter_node", locals: {twitter_node: artist}
-
-  %li
-  %h4
-    Dancers
-  - if twitter_list.any?
-    - twitter_list.each do | artist |
-      =render partial: "shared/twitter_node", locals: {twitter_node: artist}
-
   - @artist_videos.each do |role, arts_vids|
-    - next if role.nil?
     %li
     %h4
-      = role.label.capitalize
+      = role.capitalize
       - arts_vids.each do | a_v |
         =render partial: "shared/twitter_node", locals: {twitter_node: a_v.artist}
