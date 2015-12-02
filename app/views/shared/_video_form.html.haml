@@ -42,7 +42,7 @@
             %li.facebook-button
               .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
             %li.tweet-button
-              %a.twitter-share-button{count: 'none',href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 340)}", related: (@choreographer | @asst_choreographers | @dancers).map{|d| d.twitter_screen_name}.join(', ')}
+              %a.twitter-share-button{count: 'none',href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 340)}", related: @_artists.map{|d| d.twitter_screen_name}.join(', ')}
                 Tweet
         .row.description-stats.show-for-medium-up
           %ul
@@ -54,4 +54,4 @@
 .columns.small-12.large-3
   #twitter_list.small-12.columns.scrollable
     / %p Up Vote to approve artists in the video or to Down vote artists that are not in video
-    =render partial: "shared/twitter_list", locals: {twitter_list: @dancers, choreographer: @choreographer, assist_choreographers: @asst_choreographers}
+    =render partial: "shared/twitter_list"

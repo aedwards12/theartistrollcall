@@ -12,42 +12,22 @@
     %ul
       - @recommended_artists.each do |art|
         =render partial: "shared/twitter_node", locals: {twitter_node: art}
+.row
+%ul
+  - @artist_videos.each do |role, arts_vids|
+    .row
+      %h5.white_font
+        = role.capitalize
+      - av_last = arts_vids.last
+      - arts_vids.each do | a_v |
+        - vid = a_v.video
+        .columns.small-12.medium-3.large-3.transparent-box.spacing{class: ( av_last == a_v ? "end" : "")}
+          .flex-video{id: "flex-video-#{vid.id}"}
+            %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
 
-
-- if @choreography_videos.any?
-  .row
-    %h5.white_font
-      = "#{@artist.twitter_screen_name}'s choreography"
-    - @choreography_videos.each do |vid|
-      .columns.small-12.medium-3.large-3.transparent-box.spacing
-        .flex-video{id: "flex-video-#{vid.id}"}
-          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-
-        = link_to video_path(vid), class: 'button video-button' do
-          = fa_icon 'youtube-play'
-          Watch & Discover
-
-- if @asst_choreography.any?
-  .row
-    %h5.white_font
-      = "#{@artist.twitter_screen_name}'s asst choreography"
-    - @asst_choreography.each do |vid|
-      .columns.small-12.medium-7.large-3.left.transparent-box.spacing
-        .flex-video{id: "flex-video-#{vid.id}"}
-          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-        = link_to 'View', video_path(vid)
-
-- if @dancer_videos.any?
-  .row
-    %h5.white_font
-      = "#{@artist.twitter_screen_name}'s dancing"
-    - @dancer_videos.each do |vid|
-      .columns.small-12.medium-7.large-3.left.transparent-box.spacing
-        .flex-video{id: "flex-video-#{vid.id}"}
-          %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
-        = link_to video_path(vid), class: 'button video-button' do
-          = fa_icon 'youtube-play'
-          Watch & Discover
+          = link_to video_path(vid), class: 'button video-button' do
+            = fa_icon 'youtube-play'
+            Watch & Discover
 
 :javascript
   twttr.widgets.load();

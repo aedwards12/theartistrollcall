@@ -26,7 +26,7 @@
           .fb-like{data: {href: "http://www.whodatisapp.com/video/#{@video.id}", layout: "button", action: "like", "show-faces": "true", share: "true"}}
 
         %li.tweet-button
-          %a.twitter-share-button{href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 141)}", related: (@choreographer | @asst_choreographers | @dancers).map{|d| d.twitter_screen_name}.join(', ')}
+          %a.twitter-share-button{href: "https://twitter.com/intent/tweet?text=#{truncate(@twitter_encoded_string, length: 141)}", related:  @_artists.map{|d| d.twitter_screen_name}.join(', ')}
             Tweet
     .row.description-stats.artists-page-description
       %ul.inline-list
@@ -35,21 +35,12 @@
             %h6 Description:
             = @video.yt_description
 
-.row.welcome-section
-  %h3.white_font Choreographers
-  - @choreographer.each do |art|
-    .small-3.columns.left.transparent-box.spacing
-      = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
-      %h6.center= art.name
-      .button_container
-        %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
-          Follow @
-          ="#{art.twitter_screen_name}"
-
-- if @asst_choreographers.any?
+- @artist_videos.each do |role, arts_vids|
   .row.welcome-section
-    %h3.white_font Asst Choreographers
-    - @asst_choreographers.each do |art|
+    %h3.white_font
+      = role.capitalize
+    - arts_vids.each do | a_v |
+      - art = a_v.artist
       .small-3.columns.left.transparent-box.spacing
         = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
         %h6.center= art.name
@@ -57,14 +48,3 @@
           %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
             Follow @
             ="#{art.twitter_screen_name}"
-
-.row.welcome-section
-  %h3.white_font Dancers
-  - @dancers.each do |art|
-    .small-3.columns.left.transparent-box.spacing
-      = link_to image_tag( art.twitter_img_url.split('normal').join('200x200'), class: 'banner center'), artist_path(art)
-      %h6.center= art.name
-      .button_container
-        %a.twitter-follow-button{ href: "https://twitter.com/#{art.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}, class: "center"}
-          Follow @
-          ="#{art.twitter_screen_name}"

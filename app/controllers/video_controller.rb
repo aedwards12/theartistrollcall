@@ -53,12 +53,9 @@ class VideoController < ApplicationController
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
     set_meta_tag(:card, "summary_large_image")
     set_meta_tag(:site, "@AnthonyEdwardsj")
-
     @artist_vid_labels = @artist_videos.map{ |key, v| {id: key.downcase, text: key.capitalize}} | Role:: DEFAULT_LABELS
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
-    twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{@dancers.
-        map{|d| "@" + d.twitter_screen_name}.join(', ')}"
-    @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
+    twitter_text
   end
 
   def index
@@ -79,9 +76,7 @@ class VideoController < ApplicationController
   def artists
     set_meta_tag(:title, "Whodatisapp | View All Artists | #{@video.yt_title}")
     set_meta_tag(:image, "http://img.youtube.com/vi/#{@video.url}/mqdefault.jpg")
-    twitter_text =  "Checkout the work of #{(@choreographer | @asst_choreographers). map{|d| "@" + d.twitter_screen_name}.join(', ')} ft. #{(@asst_choreographers | @dancers).
-        map{|d| "@" + d.twitter_screen_name}.join(', ')}"
-    @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
+    twitter_text
   end
 
   private
@@ -93,17 +88,13 @@ class VideoController < ApplicationController
   def load_video
     @video = Video.find(params[:video_id] || params[:id])
     @video.set_yt_data
-
+    @_artists = []
     @artist_videos = @video.artist_videos.includes(:artist)
     @artist_videos.each do  |a_v|
-      a_v.artist.set_twitter_data(@client)
+      a_v.artist.set_twitter_data(@client) if a_v.artist
+      @_artists << a_v.artist
     end
     @artist_videos = @artist_videos.select{|a| a.role != nil}.group_by{ |a| a.role.label.downcase }
-    artists = @video.artists
-
-    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
-    @asst_choreographers =  artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
-    @dancers =  artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }.uniq
   end
 
   def all_videos
@@ -116,5 +107,12 @@ class VideoController < ApplicationController
 
   def set_twitter_client
     twitter_client
+  end
+
+  def twitter_text
+    remaining_a_v = @artist_videos.except([ "Choreographer(s)", "Asst Choreographer(s)", "dancer(s)"])
+    twitter_text =  "Checkout the work of #{ (@artist_videos["Choreographer(s)"] | @artist_videos["Asst Choreographer(s)"]).map{|d| "@" + d.artist.twitter_screen_name}.join(', ')  if @artist_videos["Choreographer(s)"] || @artist_videos["Asst Choreographer(s)"]} ft. #{@artist_videos["dancer(s)"].
+      map{|d| "@" + d.artist.twitter_screen_name}.join(', ') if @artist_videos["dancer(s)"]} #{remaining_a_v.values.flatten.map{|d| "@" + d.artist.twitter_screen_name}.join(', ')}"
+    @twitter_encoded_string = ERB::Util.url_encode(twitter_text)
   end
 end
