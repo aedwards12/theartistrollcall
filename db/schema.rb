@@ -44,10 +44,6 @@ ActiveRecord::Schema.define(version: 20151129011813) do
     t.string   "state"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.string   "instagram_user_name"
-    t.string   "instagram_img_url"
-    t.string   "instagram_id"
-    t.string   "instagram_full_name"
   end
 
   create_table "identities", force: :cascade do |t|

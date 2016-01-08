@@ -11,7 +11,12 @@ Video.all.each do |vid|
   vid.set_yt_data
 end
 
-5.times do
-  ArtistVideo.create( artist_id: [1,2,3].sample,  video_id: [1,2,3].sample, artist_role: [1,2,3].sample )
+['dancer(s)', 'choreographer(s)', 'asst choreographer(s)'].each do |role|
+  Role.create(label: role)
 end
+
+5.times do
+  ArtistVideo.create( artist_id: [1,2,3].sample,  video_id: [1,2,3].sample, role_id: [0,1,2].sample )
+end
+
 

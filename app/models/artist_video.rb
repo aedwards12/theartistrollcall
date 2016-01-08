@@ -7,10 +7,6 @@ class ArtistVideo < ActiveRecord::Base
   scope :choreography, ->{where(artist_role: "1")}
   scope :asst_choreography, ->{where(artist_role: "2")}
 
-
-
-  enum artist_role: [ :dancer, :choreographer, :assist_choreographer ]
-
   ARTIST_ROLE = {
     dancer: 0,
     choreographer: 1,
