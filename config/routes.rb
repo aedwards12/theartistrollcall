@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-
-
   get 'contact_form/new'
-
   get 'contact_form/create'
 
   # The priority is based upon order of creation: first created -> highest priority.

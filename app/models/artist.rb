@@ -2,6 +2,7 @@ class Artist < ActiveRecord::Base
   acts_as_votable
   has_many :artist_videos
   has_many :videos, through: :artist_videos
+  has_many :profiles
 
   validates_uniqueness_of :twitter_id
 

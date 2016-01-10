@@ -3,9 +3,13 @@
     =image_tag( @artist.twitter_img_url.split('normal').join('200x200'))
 
     %h6= @artist.name
-    %a.twitter-follow-button{ href: "https://twitter.com/#{@artist.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
-      Follow @
-      ="#{@artist.twitter_screen_name}"
+    %ul
+      %li
+        %a.twitter-follow-button{ href: "https://twitter.com/#{@artist.twitter_screen_name}", data: {"show-count" => "false", lang: "en"}}
+          Follow @
+          ="#{@artist.twitter_screen_name}"
+      %li
+        = link_to 'Add Facebook', '#'
 
   .columns.small-12.large-3.right
     %h5 Recommended Artists
