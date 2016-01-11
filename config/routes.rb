@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     post :tag
   end
 
+  resources :profiles
+
   resources :artists
 
   resources :contact_forms

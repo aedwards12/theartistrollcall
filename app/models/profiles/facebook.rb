@@ -1,0 +1,2 @@
+class Facebook < Profile
+end

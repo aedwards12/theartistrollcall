@@ -2,6 +2,7 @@ class CreateProfiles < ActiveRecord::Migration
   def change
     create_table :profiles do |t|
       t.references :artist
+      t.string :type
       t.string :profile_handle
       t.string :profile_img_url
       t.string :profile_id
