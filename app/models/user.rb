@@ -1,14 +1,12 @@
 class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
+  has_many :identities
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-
-  # devise :omniauthable, :omniauth_providers => [:google_oauth2, :twitter]
-
+    :recoverable, :rememberable, :trackable, :validatable
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
