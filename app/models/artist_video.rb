@@ -15,4 +15,4 @@ class ArtistVideo < ActiveRecord::Base
     assist_choreographer: 2
   }
 
-endttttttttttt
+end

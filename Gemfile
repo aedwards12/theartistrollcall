@@ -39,7 +39,6 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'haml'
-gem 'faker'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'twitter'
@@ -59,14 +58,18 @@ group :development, :test do
   gem 'awesome_print'
   gem 'table_print'
   gem 'pry-rails'
-  gem 'factory_girl'
   gem 'rspec-rails', '~> 3.0'
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
-
+  gem 'factory_girl_rails', '4.5'
+  gem 'faker', '~> 1.4.3'
+  gem 'database_cleaner', '1.3.0'
+  gem 'capybara-puma', '~> 1.0.1'
+  gem 'cucumber-rails', '~> 1.4.1', require: false
+  gem 'fuubar-cucumber', '~> 0.0.22'
+  gem 'vcr', '2.9.3'
+  gem 'webmock', '~> 1.20.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

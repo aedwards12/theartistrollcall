@@ -1,0 +1,195 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/videos?id=ZYkmsFBcHxk&key=AIzaSyBQ2YBoYV2X320bRrGpBZAGXEV0-j6r6wc&maxResults=50&part=statistics
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Yt::Request (gzip)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sun, 28 Feb 2016 18:09:37 GMT
+      Date:
+      - Sun, 28 Feb 2016 18:09:37 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"q5k97EMVGxODeKcDgp8gnMu79wM/4V7XVn40rnGGOxcuNWxwTmAbrAk"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '476'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "youtube#videoListResponse",
+         "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/4V7XVn40rnGGOxcuNWxwTmAbrAk\"",
+         "pageInfo": {
+          "totalResults": 1,
+          "resultsPerPage": 1
+         },
+         "items": [
+          {
+           "kind": "youtube#video",
+           "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/cQx4n11jJvWHhO4QiUeVl2S08BY\"",
+           "id": "ZYkmsFBcHxk",
+           "statistics": {
+            "viewCount": "20146",
+            "likeCount": "1293",
+            "dislikeCount": "8",
+            "favoriteCount": "0",
+            "commentCount": "45"
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Sun, 28 Feb 2016 18:09:37 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/videos?id=ZYkmsFBcHxk&key=AIzaSyBQ2YBoYV2X320bRrGpBZAGXEV0-j6r6wc&part=snippet
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Yt::Request (gzip)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sun, 28 Feb 2016 18:09:37 GMT
+      Date:
+      - Sun, 28 Feb 2016 18:09:37 GMT
+      Cache-Control:
+      - private, max-age=300, must-revalidate, no-transform
+      Etag:
+      - '"q5k97EMVGxODeKcDgp8gnMu79wM/Oz6e9POCLFIbstHvnLYMBle7X-U"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '1991'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "youtube#videoListResponse",
+         "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/Oz6e9POCLFIbstHvnLYMBle7X-U\"",
+         "pageInfo": {
+          "totalResults": 1,
+          "resultsPerPage": 1
+         },
+         "items": [
+          {
+           "kind": "youtube#video",
+           "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/HvqpJ8Vq7gvLz5zHIHd3-T57SIQ\"",
+           "id": "ZYkmsFBcHxk",
+           "snippet": {
+            "publishedAt": "2016-02-27T02:58:38.000Z",
+            "channelId": "UCRsQ9ZNRyusM2vAI0Xwc5Ow",
+            "title": "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography",
+            "description": "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me",
+            "thumbnails": {
+             "default": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/default.jpg",
+              "width": 120,
+              "height": 90
+             },
+             "medium": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+             },
+             "high": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+             },
+             "standard": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+             },
+             "maxres": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+             }
+            },
+            "channelTitle": "Antoine Troupe",
+            "tags": [
+             "dance",
+             "choreography",
+             "tutorial",
+             "antoine troupe",
+             "millenium",
+             "dance complex",
+             "dance studio",
+             "danse",
+             "howto",
+             "tory lanez",
+             "n.a.me.",
+             "name",
+             "dominique battiste",
+             "devin solomon",
+             "kachi",
+             "troupe",
+             "hip hop"
+            ],
+            "categoryId": "24",
+            "liveBroadcastContent": "none",
+            "localized": {
+             "title": "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography",
+             "description": "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"
+            }
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Sun, 28 Feb 2016 18:09:37 GMT
+recorded_with: VCR 2.9.3

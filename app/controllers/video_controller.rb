@@ -41,6 +41,7 @@ class VideoController < ApplicationController
     @new_video = Video.new
     if @video.save
       @video.set_yt_data
+      render :js => "window.location.href = '#{video_path(@video)}'"
     end
   end
 
