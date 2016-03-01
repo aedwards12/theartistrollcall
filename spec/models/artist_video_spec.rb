@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ArtistVideo, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+ it "has a valid model" do
+    expect(build(:artist_video)).to be_valid
+  end
 end

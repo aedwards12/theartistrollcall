@@ -1079,3 +1079,703 @@ Processing by VideoController#create as HTML
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
 Completed 200 OK in 108ms (Views: 0.1ms | ActiveRecord: 11.6ms)
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1[0m  [["url", "ZYkmsFBcHxk"]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:17:21.316038"], ["updated_at", "2016-02-28 21:17:21.316038"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 46) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mApiRequest Load (0.5ms)[0m  [1mSELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1[0m  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[35mVideo Load (0.3ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1  [["id", 46]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 46) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7[0m  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:17:21.355784"], ["id", 46]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Exists (0.3ms)[0m  SELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:17:21.358967"], ["created_at", "2016-02-28 21:17:21.360552"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 80ms (Views: 0.1ms | ActiveRecord: 10.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:18:57.461960"], ["updated_at", "2016-02-28 21:18:57.461960"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 47) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 47]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 47) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:18:57.501522"], ["id", 47]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:18:57.504870"], ["created_at", "2016-02-28 21:18:57.506510"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 78ms (Views: 0.1ms | ActiveRecord: 10.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:25:29.224299"], ["updated_at", "2016-02-28 21:25:29.224299"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 48) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 48]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 48) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:25:29.266145"], ["id", 48]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:25:29.269348"], ["created_at", "2016-02-28 21:25:29.271064"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 80ms (Views: 0.1ms | ActiveRecord: 9.8ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:27:37.874252"], ["updated_at", "2016-02-28 21:27:37.874252"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 49) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.7ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 49]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 49) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:27:37.912945"], ["id", 49]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:27:37.915880"], ["created_at", "2016-02-28 21:27:37.917445"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 85ms (Views: 0.1ms | ActiveRecord: 10.7ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:30:23.066622"], ["updated_at", "2016-02-28 21:30:23.066622"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 50) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 50]]
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 50) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:30:23.106483"], ["id", 50]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:30:23.110626"], ["created_at", "2016-02-28 21:30:23.112470"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 84ms (Views: 0.2ms | ActiveRecord: 10.0ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.6ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:31:06.663766"], ["updated_at", "2016-02-28 21:31:06.663766"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.6ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 51) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 51]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 51) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:31:06.706608"], ["id", 51]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:31:06.709647"], ["created_at", "2016-02-28 21:31:06.711428"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 87ms (Views: 0.1ms | ActiveRecord: 11.8ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:34:24.420738"], ["updated_at", "2016-02-28 21:34:24.420738"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 52) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 52]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 52) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:34:24.462582"], ["id", 52]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:34:24.465797"], ["created_at", "2016-02-28 21:34:24.467461"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 82ms (Views: 0.1ms | ActiveRecord: 9.5ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.6ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:35:37.090095"], ["updated_at", "2016-02-28 21:35:37.090095"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 53) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.7ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 53]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 53) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:35:37.139053"], ["id", 53]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:35:37.143793"], ["created_at", "2016-02-28 21:35:37.145952"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 102ms (Views: 0.2ms | ActiveRecord: 12.1ms)
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.7ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:35:55.355797"], ["updated_at", "2016-02-28 21:35:55.355797"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 54) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 54]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 54) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:35:55.401627"], ["id", 54]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:35:55.405115"], ["created_at", "2016-02-28 21:35:55.406854"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 87ms (Views: 0.1ms | ActiveRecord: 10.5ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:36:49.346748"], ["updated_at", "2016-02-28 21:36:49.346748"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 55) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.7ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 55]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 55) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:36:49.391798"], ["id", 55]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:36:49.395086"], ["created_at", "2016-02-28 21:36:49.396814"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 89ms (Views: 0.1ms | ActiveRecord: 10.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:37:16.584161"], ["updated_at", "2016-02-28 21:37:16.584161"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 56) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.5ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 56]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 56) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:37:16.627139"], ["id", 56]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:37:16.630768"], ["created_at", "2016-02-28 21:37:16.632629"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 89ms (Views: 0.2ms | ActiveRecord: 10.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-28 21:38:05.755067"], ["updated_at", "2016-02-28 21:38:05.755067"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 57) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 57]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 57) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-28 21:38:05.795157"], ["id", 57]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-28 21:38:05.798421"], ["created_at", "2016-02-28 21:38:05.800189"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 10.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-02-29 13:00:32.732994"], ["updated_at", "2016-02-29 13:00:32.732994"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 58) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 58]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 58) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-02-29 13:00:32.777893"], ["id", 58]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-02-29 13:00:32.780793"], ["created_at", "2016-02-29 13:00:32.782448"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 81ms (Views: 0.1ms | ActiveRecord: 9.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.5ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-03-01 01:35:57.217348"], ["updated_at", "2016-03-01 01:35:57.217348"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 59) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 59]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 59) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-03-01 01:35:57.262367"], ["id", 59]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-03-01 01:35:57.265591"], ["created_at", "2016-03-01 01:35:57.267633"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 90ms (Views: 0.1ms | ActiveRecord: 13.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-03-01 01:36:30.701486"], ["updated_at", "2016-03-01 01:36:30.701486"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 60) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 60]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 60) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-03-01 01:36:30.739520"], ["id", 60]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-03-01 01:36:30.742434"], ["created_at", "2016-03-01 01:36:30.743984"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 76ms (Views: 0.2ms | ActiveRecord: 9.2ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-03-01 01:39:37.720224"], ["updated_at", "2016-03-01 01:39:37.720224"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 61) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 61]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 61) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-03-01 01:39:37.759888"], ["id", 61]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-03-01 01:39:37.763017"], ["created_at", "2016-03-01 01:39:37.764627"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 85ms (Views: 0.1ms | ActiveRecord: 11.4ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos"  ORDER BY "videos"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mVideo Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.8ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:07:14.264331"], ["updated_at", "2016-03-01 02:07:14.264331"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.8ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:08:32.676687"], ["updated_at", "2016-03-01 02:08:32.676687"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:09:33.854554"], ["updated_at", "2016-03-01 02:09:33.854554"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 3) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:09:34.429329"], ["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:09:34.433620"], ["created_at", "2016-03-01 02:09:34.435827"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:11:37.977170"], ["updated_at", "2016-03-01 02:11:37.977170"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.4ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 4) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:12:19.915112"], ["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:12:19.918621"], ["created_at", "2016-03-01 02:12:19.920446"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:13:04.459572"], ["updated_at", "2016-03-01 02:13:04.459572"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 5) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:13:04.508763"], ["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:13:04.511274"], ["created_at", "2016-03-01 02:13:04.512849"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:13:17.222538"], ["updated_at", "2016-03-01 02:13:17.222538"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:13:17.277630"], ["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:13:17.280185"], ["created_at", "2016-03-01 02:13:17.281765"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArtist Load (0.2ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mArtist Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:13:43.909051"], ["updated_at", "2016-03-01 02:13:43.909051"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:13:43.958884"], ["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:13:43.961483"], ["created_at", "2016-03-01 02:13:43.963348"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mArtist Load (0.2ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArtist Exists (1.0ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "http://pbs.twimg.com/profile_images/378800000110195325/1f6209cdf7cf3c03aec4e700a5290e83_normal.jpeg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:21:31.401614"], ["updated_at", "2016-03-01 02:21:31.401614"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "roles" ("label", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["label", "Dancer"], ["created_at", "2016-03-01 02:21:31.427829"], ["updated_at", "2016-03-01 02:21:31.427829"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "videos" ("url", "yt_title", "yt_description", "yt_author", "yt_pub_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["url", "ZYkmsFBcHxk"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["created_at", "2016-03-01 02:21:31.463567"], ["updated_at", "2016-03-01 02:21:31.463567"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-03-01 02:23:26.685297"], ["updated_at", "2016-03-01 02:23:26.685297"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 63) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.5ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 63]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 63) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-03-01 02:23:26.723817"], ["id", 63]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-03-01 02:23:26.727052"], ["created_at", "2016-03-01 02:23:26.728680"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 77ms (Views: 0.1ms | ActiveRecord: 9.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT  "videos".* FROM "videos"  ORDER BY "videos"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mArtist Exists (0.6ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArtist Exists (0.3ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:23:26.757368"], ["updated_at", "2016-03-01 02:23:26.757368"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mApiRequest Load (0.3ms)[0m  [1mSELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1[0m  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[35mArtist Load (0.3ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArtist Exists (0.4ms)[0m  SELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 9) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3[0m  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:23:26.793583"], ["id", 9]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Exists (0.3ms)[0m  SELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:23:26.795418"], ["created_at", "2016-03-01 02:23:26.796786"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArtist Load (0.2ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "http://pbs.twimg.com/profile_images/378800000110195325/1f6209cdf7cf3c03aec4e700a5290e83_normal.jpeg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:23:26.826223"], ["updated_at", "2016-03-01 02:23:26.826223"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "roles" ("label", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["label", "Dancer"], ["created_at", "2016-03-01 02:23:26.841516"], ["updated_at", "2016-03-01 02:23:26.841516"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.3ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "videos" ("url", "yt_title", "yt_description", "yt_author", "yt_pub_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["created_at", "2016-03-01 02:23:26.847321"], ["updated_at", "2016-03-01 02:23:26.847321"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mVideo Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "videos"[0m
+Processing by VideoController#create as HTML
+  Parameters: {"video"=>{"url"=>"https://www.youtube.com/watch?v=ZYkmsFBcHxk"}, "xhr"=>true}
+  [1m[35mVideo Load (0.4ms)[0m  SELECT  "videos".* FROM "videos" WHERE "videos"."url" = $1  ORDER BY "videos"."id" ASC LIMIT 1  [["url", "ZYkmsFBcHxk"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "videos" ("url", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["created_at", "2016-03-01 02:24:12.175924"], ["updated_at", "2016-03-01 02:24:12.175924"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.5ms)[0m  SELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 65) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Load (0.4ms)[0m  SELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"]]
+  [1m[36mVideo Load (0.7ms)[0m  [1mSELECT  "videos".* FROM "videos" WHERE "videos"."id" = $1 LIMIT 1[0m  [["id", 65]]
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mVideo Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE ("videos"."url" = 'ZYkmsFBcHxk' AND "videos"."id" != 65) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "videos" SET "yt_count" = $1, "yt_title" = $2, "yt_description" = $3, "yt_author" = $4, "yt_pub_date" = $5, "updated_at" = $6 WHERE "videos"."id" = $7  [["yt_count", "20146"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["updated_at", "2016-03-01 02:24:12.218996"], ["id", 65]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mApiRequest Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://www.youtube.com/watch?v=ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"  [["url", "https://www.youtube.com/watch?v=ZYkmsFBcHxk"], ["updated_at", "2016-03-01 02:24:12.222149"], ["created_at", "2016-03-01 02:24:12.223903"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 81ms (Views: 0.1ms | ActiveRecord: 9.8ms)
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "videos"
+  [1m[36mVideo Load (0.4ms)[0m  [1mSELECT  "videos".* FROM "videos"  ORDER BY "videos"."id" ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mArtist Exists (0.6ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArtist Exists (0.3ms)[0m  SELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "false_image.jpg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:24:12.248110"], ["updated_at", "2016-03-01 02:24:12.248110"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mApiRequest Load (0.3ms)[0m  [1mSELECT  "api_requests".* FROM "api_requests" WHERE "api_requests"."url" = $1 LIMIT 1[0m  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"]]
+  [1m[35mArtist Load (0.3ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mArtist Exists (0.4ms)[0m  SELECT  1 AS one FROM "artists" WHERE ("artists"."twitter_id" = '30777203' AND "artists"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "artists" SET "twitter_img_url" = $1, "updated_at" = $2 WHERE "artists"."id" = $3[0m  [["twitter_img_url", "http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg"], ["updated_at", "2016-03-01 02:24:12.283714"], ["id", 11]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mApiRequest Exists (0.3ms)[0m  SELECT  1 AS one FROM "api_requests" WHERE "api_requests"."url" = 'https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "api_requests" ("url", "updated_at", "created_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["url", "https://api.twitter.com/1.1/users/lookup.json?screen_name=30777203"], ["updated_at", "2016-03-01 02:24:12.286015"], ["created_at", "2016-03-01 02:24:12.287478"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mArtist Load (0.3ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mArtist Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "artists" WHERE "artists"."twitter_id" = '30777203' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "artists" ("first_name", "last_name", "name", "city", "state", "twitter_id", "twitter_img_url", "twitter_screen_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["first_name", "Anthony"], ["last_name", "Edwards"], ["name", "Anthony Edwards Jr"], ["city", "Saugerties"], ["state", "New York"], ["twitter_id", "30777203"], ["twitter_img_url", "http://pbs.twimg.com/profile_images/378800000110195325/1f6209cdf7cf3c03aec4e700a5290e83_normal.jpeg"], ["twitter_screen_name", "AnthonyEdwardsj"], ["created_at", "2016-03-01 02:24:12.314486"], ["updated_at", "2016-03-01 02:24:12.314486"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "roles" ("label", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["label", "Dancer"], ["created_at", "2016-03-01 02:24:12.333597"], ["updated_at", "2016-03-01 02:24:12.333597"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mVideo Exists (0.4ms)[0m  SELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "videos" ("url", "yt_title", "yt_description", "yt_author", "yt_pub_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["url", "ZYkmsFBcHxk"], ["yt_title", "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography"], ["yt_description", "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"], ["yt_author", "Antoine Troupe"], ["yt_pub_date", "2016-02-27T02:58:38.000Z"], ["created_at", "2016-03-01 02:24:12.341453"], ["updated_at", "2016-03-01 02:24:12.341453"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mVideo Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "videos" WHERE "videos"."url" = 'ZYkmsFBcHxk' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
