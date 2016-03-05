@@ -27,6 +27,4 @@ FactoryGirl.define do
     association :role
     association :video
   end
-
-
 end

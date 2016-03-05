@@ -64,17 +64,20 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'factory_girl_rails', '4.5'
   gem 'faker', '~> 1.4.3'
-  gem 'database_cleaner', '1.3.0'
   gem 'capybara-puma', '~> 1.0.1'
   gem 'cucumber-rails', '~> 1.4.1', require: false
   gem 'fuubar-cucumber', '~> 0.0.22'
-  gem 'vcr', '2.9.3'
-  gem 'webmock', '~> 1.20.4'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 gem 'rails_12factor', group: :production
+
+group :test do
+  gem 'database_cleaner', '1.3.0'
+  gem 'webmock', '~> 1.20.4'
+  gem 'vcr', '2.9.3'
+end
 
 group :production do
   gem 'pg'

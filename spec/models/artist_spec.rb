@@ -4,15 +4,16 @@ RSpec.describe Artist, type: :model do
   it "has a valid model" do
     expect(build(:artist)).to be_valid
   end
-
-  it "updates twitter image" do
-    load_client
-    artist = create(:artist, twitter_img_url: "false_image.jpg")
-    VCR.use_cassette 'twitter_update_cassette' do
-      artist.set_twitter_data(@client)
+  describe "#set_twitter_data" do
+    it "updates twitter image" do
+      load_client
+      artist = create(:artist, twitter_img_url: "false_image.jpg")
+      VCR.use_cassette 'twitter_update_cassette' do
+        artist.set_twitter_data(@client)
+      end
+      artist.reload
+      expect(artist.twitter_img_url).to eq("http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg")
     end
-    artist.reload
-    expect(artist.twitter_img_url).to eq("http://pbs.twimg.com/profile_images/636694223107031040/OF7_RwIT_normal.jpg")
   end
 end
 

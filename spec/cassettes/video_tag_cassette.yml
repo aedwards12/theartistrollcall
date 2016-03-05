@@ -1,0 +1,282 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/videos?id=ZYkmsFBcHxk&key=AIzaSyBQ2YBoYV2X320bRrGpBZAGXEV0-j6r6wc&maxResults=50&part=statistics
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Yt::Request (gzip)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sat, 05 Mar 2016 17:13:48 GMT
+      Date:
+      - Sat, 05 Mar 2016 17:13:48 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"q5k97EMVGxODeKcDgp8gnMu79wM/wUN3MBHuC4kIGeTaa6nT8nbVj4k"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '477'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "youtube#videoListResponse",
+         "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/wUN3MBHuC4kIGeTaa6nT8nbVj4k\"",
+         "pageInfo": {
+          "totalResults": 1,
+          "resultsPerPage": 1
+         },
+         "items": [
+          {
+           "kind": "youtube#video",
+           "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/ngDL4yXsa2rjyl5mIOQxjkPH0CA\"",
+           "id": "ZYkmsFBcHxk",
+           "statistics": {
+            "viewCount": "37512",
+            "likeCount": "1753",
+            "dislikeCount": "11",
+            "favoriteCount": "0",
+            "commentCount": "52"
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Sat, 05 Mar 2016 17:13:48 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/youtube/v3/videos?id=ZYkmsFBcHxk&key=AIzaSyBQ2YBoYV2X320bRrGpBZAGXEV0-j6r6wc&part=snippet
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Yt::Request (gzip)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sat, 05 Mar 2016 17:13:49 GMT
+      Date:
+      - Sat, 05 Mar 2016 17:13:49 GMT
+      Cache-Control:
+      - private, max-age=300, must-revalidate, no-transform
+      Etag:
+      - '"q5k97EMVGxODeKcDgp8gnMu79wM/rfvyH-IxHgAnLslIx1RGl5hQlYM"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Content-Length:
+      - '1991'
+      Server:
+      - GSE
+      Alternate-Protocol:
+      - 443:quic,p=1
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="30,29,28,27,26,25"
+    body:
+      encoding: UTF-8
+      string: |
+        {
+         "kind": "youtube#videoListResponse",
+         "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/rfvyH-IxHgAnLslIx1RGl5hQlYM\"",
+         "pageInfo": {
+          "totalResults": 1,
+          "resultsPerPage": 1
+         },
+         "items": [
+          {
+           "kind": "youtube#video",
+           "etag": "\"q5k97EMVGxODeKcDgp8gnMu79wM/giOepX7AKuUirVW8A12ltVbQNP4\"",
+           "id": "ZYkmsFBcHxk",
+           "snippet": {
+            "publishedAt": "2016-02-27T02:58:38.000Z",
+            "channelId": "UCRsQ9ZNRyusM2vAI0Xwc5Ow",
+            "title": "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography",
+            "description": "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me",
+            "thumbnails": {
+             "default": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/default.jpg",
+              "width": 120,
+              "height": 90
+             },
+             "medium": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/mqdefault.jpg",
+              "width": 320,
+              "height": 180
+             },
+             "high": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/hqdefault.jpg",
+              "width": 480,
+              "height": 360
+             },
+             "standard": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/sddefault.jpg",
+              "width": 640,
+              "height": 480
+             },
+             "maxres": {
+              "url": "https://i.ytimg.com/vi/ZYkmsFBcHxk/maxresdefault.jpg",
+              "width": 1280,
+              "height": 720
+             }
+            },
+            "channelTitle": "Antoine Troupe",
+            "tags": [
+             "dance",
+             "choreography",
+             "tutorial",
+             "antoine troupe",
+             "millenium",
+             "dance complex",
+             "dance studio",
+             "danse",
+             "howto",
+             "tory lanez",
+             "n.a.me.",
+             "name",
+             "dominique battiste",
+             "devin solomon",
+             "kachi",
+             "troupe",
+             "hip hop"
+            ],
+            "categoryId": "24",
+            "liveBroadcastContent": "none",
+            "localized": {
+             "title": "Tory Lanez - N.A.M.E. | @AntoineTroupe Choreography",
+             "description": "Hope you enjoy. Learn this routine on my site and send me a video of you doing it!! Find the tutorial at antoinetroupe.me"
+            }
+           }
+          }
+         ]
+        }
+    http_version: 
+  recorded_at: Sat, 05 Mar 2016 17:13:49 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=anthonyedwardsj
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="PymZCK32d96FwUtuKBIf7KN7j", oauth_nonce="09db381df9c118721deb5976f382c412",
+        oauth_signature="EuvgmDu28cZbMDDwBMJYmuUmUYg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1457198029", oauth_token="30777203-isVDTbo5o7Du5HwCFLIzsVx1zMIZFcKm3ZNu3JKhW",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '1155'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 05 Mar 2016 17:13:49 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Sat, 05 Mar 2016 17:13:49 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_b
+      Set-Cookie:
+      - guest_id=v1%3A145719802981326204; Domain=.twitter.com; Path=/; Expires=Mon,
+        05-Mar-2018 17:13:49 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - ef79436a4a1d26299a4105892682eb90
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '181'
+      X-Rate-Limit-Remaining:
+      - '180'
+      X-Rate-Limit-Reset:
+      - '1457198929'
+      X-Response-Time:
+      - '45'
+      X-Transaction:
+      - b14da5eb524774e5
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":30777203,"id_str":"30777203","name":"Anthony Edwards Jr","screen_name":"AnthonyEdwardsj","location":"NYC","profile_location":null,"description":"","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":102,"friends_count":165,"listed_count":3,"created_at":"Mon
+        Apr 13 01:50:56 +0000 2009","favourites_count":184,"utc_offset":-18000,"time_zone":"Quito","geo_enabled":true,"verified":false,"statuses_count":199,"lang":"en","status":{"created_at":"Wed
+        Feb 17 02:39:08 +0000 2016","id":699785119331196928,"id_str":"699785119331196928","text":"RT
+        @SuperBasedNique: @AnthonyEdwardsj  https:\/\/t.co\/vryyGqPCE1","truncated":false,"source":"\u003ca
+        href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter
+        for iPhone\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweeted_status":{"created_at":"Wed
+        Feb 17 01:46:42 +0000 2016","id":699771922259800066,"id_str":"699771922259800066","text":"@AnthonyEdwardsj  https:\/\/t.co\/vryyGqPCE1","truncated":false,"source":"\u003ca
+        href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter
+        for iPhone\u003c\/a\u003e","in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":30777203,"in_reply_to_user_id_str":"30777203","in_reply_to_screen_name":"AnthonyEdwardsj","geo":null,"coordinates":null,"place":null,"contributors":null,"quoted_status_id":699624313154973696,"quoted_status_id_str":"699624313154973696","is_quote_status":true,"retweet_count":1,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"AnthonyEdwardsj","name":"Anthony
+        Edwards Jr","id":30777203,"id_str":"30777203","indices":[0,16]}],"urls":[{"url":"https:\/\/t.co\/vryyGqPCE1","expanded_url":"https:\/\/twitter.com\/independentlens\/status\/699624313154973696","display_url":"twitter.com\/independentlen\u2026","indices":[18,41]}]},"favorited":false,"retweeted":true,"possibly_sensitive":false,"lang":"und"},"is_quote_status":true,"retweet_count":1,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[{"screen_name":"SuperBasedNique","name":"God
+        Made Dirt...","id":372803681,"id_str":"372803681","indices":[3,19]},{"screen_name":"AnthonyEdwardsj","name":"Anthony
+        Edwards Jr","id":30777203,"id_str":"30777203","indices":[21,37]}],"urls":[{"url":"https:\/\/t.co\/vryyGqPCE1","expanded_url":"https:\/\/twitter.com\/independentlens\/status\/699624313154973696","display_url":"twitter.com\/independentlen\u2026","indices":[39,62]}]},"favorited":false,"retweeted":true,"possibly_sensitive":false,"lang":"und"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"709397","profile_background_image_url":"http:\/\/pbs.twimg.com\/profile_background_images\/285769013\/edwards_anthony3118RTsmall.jpg","profile_background_image_url_https":"https:\/\/pbs.twimg.com\/profile_background_images\/285769013\/edwards_anthony3118RTsmall.jpg","profile_background_tile":true,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/636694223107031040\/OF7_RwIT_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/636694223107031040\/OF7_RwIT_normal.jpg","profile_banner_url":"https:\/\/pbs.twimg.com\/profile_banners\/30777203\/1440634600","profile_link_color":"FF3300","profile_sidebar_border_color":"86A4A6","profile_sidebar_fill_color":"A0C5C7","profile_text_color":"333333","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
+    http_version: 
+  recorded_at: Sat, 05 Mar 2016 17:13:49 GMT
+recorded_with: VCR 2.9.3

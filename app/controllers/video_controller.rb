@@ -18,8 +18,7 @@ class VideoController < ApplicationController
             art.name = @artist.name
           end
         end
-
-        @role = Role.where(label: params[:artist_role].first).first_or_create
+        @role = Role.where(label: params[:artist_role]).first_or_create
         ArtistVideo.where(artist: @artist, video: @video, role: @role).first_or_create
 
       rescue Twitter::Error
