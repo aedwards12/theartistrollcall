@@ -14,7 +14,11 @@
             .small-12.columns.no_padding
               = text_field :artist_role, nil, id: "artist_role"
           .row
-            =label_tag :dancer_tags, '2: Add twitter handle of Artist ex.  @example'
+            =label_tag :handle_type, '2: Artist Social Profile Type'
+            .small-12.columns.no_padding
+              = text_field :handle_type, nil, id: "handle_type"
+          .row
+            =label_tag :dancer_tags, '3: Add twitter handle of Artist ex.  @example'
             .small-9.columns.no_padding
               = text_field :dancer_tags, nil, id: "dancer_tags"
             .small-3.columns.no_padding

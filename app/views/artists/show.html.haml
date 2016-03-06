@@ -12,7 +12,7 @@
         - if @artist.facebook_profile
           .fb-follow{data: {href: "https://www.facebook.com/#{@artist.facebook_profile.profile_handle}", layout: "standard", 'show-faces': true, colorscheme: 'dark'}}
         - else
-          =link_to 'Add Facebook', '#'
+          =link_to 'Add Facebook', profiles_path, method: :post
 
   .columns.small-12.large-3.right
     %h5 Recommended Artists

@@ -6,6 +6,8 @@ class Artist < ActiveRecord::Base
 
   validates_uniqueness_of :twitter_id
 
+  HANDLES = %w(facebook twitter).map{|type| {id: type, text: type} }
+
   def type
     self.class.name
   end
