@@ -3,17 +3,19 @@
 :javascript
   $( document ).ready(function() {
     var artists = JSON.parse("#{ j @artists.to_json}");
-    var labels = JSON.parse("#{ j @artist_vid_labels.to_json}");
+    var labels  = JSON.parse("#{ j @artist_vid_labels.to_json}");
+    var handles = JSON.parse("#{ j @handles.to_json}");
 
     $('.fa-arrow-circle-up').on('click', function(e){
       $.ajax({
         url: $(this).data('url')
-        })
+      })
     });
+
     $('.fa-arrow-circle-down').on('click', function(e){
       $.ajax({
         url: $(this).data('url')
-        })
+      })
     });
 
     $('#artist_role').select2({
@@ -26,8 +28,8 @@
       },
       createSearchChoice: function(term) {
         return {
-            id: term,
-            text: term + ' (new)'
+          id: term,
+          text: term + ' (new)'
         };
       }
     });
@@ -38,10 +40,17 @@
       tags: true,
       createSearchChoice: function(term) {
         return {
-            id: term,
-            text: term + ' (new)'
+          id: term,
+          text: term + ' (new)'
         };
       }
     });
+
+    $('#handle_type').select2({
+      placeholder: "twitter, facebook",
+      data: {results: handles }
+    });
+
   });
+
   twttr.widgets.load();

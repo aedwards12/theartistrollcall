@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129011813) do
+ActiveRecord::Schema.define(version: 20160120034549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151129011813) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "token"
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
@@ -66,6 +67,21 @@ ActiveRecord::Schema.define(version: 20151129011813) do
     t.text     "meta_keywords"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "artist_id"
+    t.string   "type"
+    t.string   "profile_handle"
+    t.string   "profile_img_url"
+    t.string   "profile_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "name"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "roles", force: :cascade do |t|

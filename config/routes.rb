@@ -1,27 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
-
-
-  get 'contact_form/new'
-
-  get 'contact_form/create'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
-
+  devise_for :users
+  get 'contact_form/new'
+  get 'contact_form/create'
+  match '/auth/:action/callback', :to => 'omniauth_callbacks', :constraints => { :action => /twitter|facebook/ }, via: [:get, :post]
   get 'welcome/search' => 'welcome#search'
-  get 'twitter_callback_url' => 'welcome#twitter_callback_url'
   get 'about' => 'welcome#about'
   resources :video do
     get :artists, on: :member
     post :tag
   end
-
+  resources :profiles
   resources :artists
-
   resources :contact_forms
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   get 'artist/:id/up_vote' => 'votes#up_vote', via: :get, as: :up_vote

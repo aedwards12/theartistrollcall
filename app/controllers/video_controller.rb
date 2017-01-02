@@ -6,29 +6,46 @@ class VideoController < ApplicationController
     dancer_list = params[:dancer_tags].first.split(",")
     @video.dancer_list.add(dancer_list, parse: true)
     dancer_list.each do | dancer |
-      @artist = Artist.where(twitter_screen_name: dancer).first
-      begin
-        @artist ||=@client.user(dancer.strip.downcase)
-        if @artist.class.name != "Artist"
-          @artist = Artist.where(
-                               twitter_id: @artist.id,
-                              ).first_or_create do |art|
-            art.twitter_screen_name = @artist.screen_name
-            art.twitter_img_url = @artist.profile_image_url.to_s
-            art.name = @artist.name
+      if params[:handle_type][0] == 'twitter'
+        @artist = Artist.where(twitter_screen_name: dancer).first
+        begin
+          @artist ||=@client.user(dancer.strip.downcase)
+          if @artist.class.name != "Artist"
+            @artist = Artist.where(
+                                 twitter_id: @artist.id,
+                                ).first_or_create do |art|
+              art.twitter_screen_name = @artist.screen_name
+              art.twitter_img_url = @artist.profile_image_url.to_s
+              art.name = @artist.name
+            end
           end
-        end
-        @role = Role.where(label: params[:artist_role]).first_or_create
-        ArtistVideo.where(artist: @artist, video: @video, role: @role).first_or_create
 
-      rescue Twitter::Error
+          @role = Role.where(label: params[:artist_role].first).first_or_create
+          ArtistVideo.where(artist: @artist, video: @video, role: @role).first_or_create
+
+        rescue Twitter::Error
+
+        end
+        artists = @video.artists
+        @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
+        @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
+        @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
+      elsif params[:handle_type][0] == 'facebook'
+        browser = Watir::Browser.start "https://www.facebook.com/danielle.jo1"
+        browser.text_field(name: 'email').set("anthony.edwardsjr@gmail.com")
+        browser.text_field(name: 'pass').set("Bail3four@22")
+        browser.button(value: 'Log In').click
+        sleep 0.1
+        html = browser.html
+        noko_html = Nokogiri::HTML(html)
+        href = noko_html.css('.photoContainer')[0].children[0].children[0].attributes["href"].value
+        browser.close
+        id = href.split('.').last.split('&').first
+        response = open("https://graph.facebook.com/#{id}?access_token=#{fb_provider.token}&fields=id,name,picture").read
+        Rails.logger.ap JSON.parse(response)
 
       end
     end
-    artists = @video.artists
-    @choreographer = artists.where(id: @video.artist_videos.choreographer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
-    @asst_choreographers = artists.where(id: @video.artist_videos.asst_choreography.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
-    @dancers = artists.where(id: @video.artist_videos.dancer.pluck(:artist_id)).each{ |art| art.set_twitter_data(@client) }
   end
 
   def new
@@ -55,6 +72,7 @@ class VideoController < ApplicationController
     set_meta_tag(:site, "@AnthonyEdwardsj")
     @artist_vid_labels = @artist_videos.map{ |key, v| {id: key.downcase, text: key.capitalize}} | Role:: DEFAULT_LABELS
     @artists = Artist.all.map{|x| {id: x.twitter_screen_name, text: "@#{x.twitter_screen_name}  (#{x.name})"}}
+    @handles = Artist::HANDLES
     twitter_text
   end
 
@@ -80,6 +98,10 @@ class VideoController < ApplicationController
   end
 
   private
+
+  def fb_provider
+    current_user.identities.where(provider: 'facebook').first
+  end
 
   def new_video
     @video = Video.new
