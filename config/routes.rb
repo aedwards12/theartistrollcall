@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'contact_form/new'
   get 'contact_form/create'
-  match '/auth/:action/callback', :to => 'omniauth_callbacks', :constraints => { :action => /twitter|facebook/ }, via: [:get, :post]
+  match '/auth/:action/callback', :controller => 'omniauth_callbacks', :constraints => { :action => /twitter|facebook/ }, via: [:get, :post]
   get 'welcome/search' => 'welcome#search'
   get 'about' => 'welcome#about'
   resources :video do
