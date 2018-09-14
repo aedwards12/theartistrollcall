@@ -54,7 +54,6 @@ gem 'kaminari'
 gem 'meta_tags', git: "git://github.com/vala/meta_tags.git"
 gem 'fb_graph'
 gem 'rest-client'
-gem "watir", "6.0.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
