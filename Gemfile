@@ -27,7 +27,7 @@ gem 'yt', '~> 0.28.0'
 gem "font-awesome-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'puma'
+gem 'puma', '3.6.2'
 gem 'mail_form'
 
 # Use Unicorn as the app server
