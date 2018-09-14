@@ -12,6 +12,7 @@ class Video < ActiveRecord::Base
 
   def set_yt_data
     yt_url = YoutubeApi.new(url).youtube_search_url
+    puts yt_url.to_yaml
     ApiRequest.cache(yt_url, YoutubeApi::CACHE_POLICY, id) do
       # do stuff here if needed
     end

@@ -21,7 +21,11 @@ class ApiRequest < ActiveRecord::Base
         end
       else
         vid = Video.find id
-        yt_video = Yt::Video.new url: url
+        puts "--------------------"
+        puts vid.inspect
+        puts url
+        puts "--------------------"
+        yt_video = Yt::Video.new id: vid.url
         vid.yt_count = yt_video.view_count
         vid.yt_title = yt_video.title
         vid.yt_description = yt_video.description

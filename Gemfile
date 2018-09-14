@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~>0.21'
 gem 'thin'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -23,7 +23,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'yt', '~> 0.22.2'
+gem 'yt', '~> 0.28.0'
 gem "font-awesome-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -81,8 +81,4 @@ group :test do
   gem 'database_cleaner', '1.3.0'
   gem 'webmock', '~> 1.20.4'
   gem 'vcr', '2.9.3'
-end
-
-group :production do
-  gem 'pg'
 end
