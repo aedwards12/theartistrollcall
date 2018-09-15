@@ -56,6 +56,12 @@ gem 'meta_tags', git: "git://github.com/vala/meta_tags.git"
 gem 'fb_graph'
 gem 'rest-client'
 
+group :development do
+  gem 'web-console'
+end
+
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -64,10 +70,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
   gem 'factory_girl_rails', '4.5'
-  gem 'faker', '~> 1.4.3'
+  gem 'faker'
   gem 'capybara-puma', '~> 1.0.1'
   gem 'cucumber-rails', '~> 1.4.1', require: false
   gem 'fuubar-cucumber', '~> 0.0.22'
@@ -78,7 +83,7 @@ end
 gem 'rails_12factor', group: :production
 
 group :test do
-  gem 'database_cleaner', '1.3.0'
-  gem 'webmock', '~> 1.20.4'
-  gem 'vcr', '2.9.3'
+  gem 'database_cleaner'
+  gem 'webmock'
+  gem 'vcr', '4.0.0'
 end
