@@ -6,7 +6,7 @@ class VideoController < ApplicationController
     dancer_list = params[:dancer_tags].first.split(",")
     @video.dancer_list.add(dancer_list, parse: true)
     dancer_list.each do | dancer |
-      if params[:handle_type]['0'] == 'twitter'
+      if params[:handle_type][0] == 'twitter'
         @artist = Artist.where(twitter_screen_name: dancer).first
         begin
           @artist ||=@client.user(dancer.strip.downcase)
@@ -18,7 +18,14 @@ class VideoController < ApplicationController
               art.twitter_img_url = @artist.profile_image_url.to_s
               art.name = @artist.name
             end
+          else
+            twitter_profile = @client.user(dancer.strip.downcase)
+            @artist.twitter_screen_name = twitter_profile.screen_name
+            @artist.twitter_img_url = twitter_profile.profile_image_url.to_s
+            @artist.save
           end
+
+
           @role = Role.where(label: params[:artist_role]).first_or_create
           ArtistVideo.where(artist: @artist, video: @video, role: @role).first_or_create
         rescue Twitter::Error
