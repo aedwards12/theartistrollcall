@@ -25,5 +25,10 @@ module Theartistrollcall
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    Rails.application.config.middleware.use OmniAuth::Builder do
+      provider :twitter, ENV["CONSUMER_KEY"], ENV["CONSUMER_SECRET"]
+      # provider :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET"], callback_url: "callback/facebook"
+    end
   end
 end
