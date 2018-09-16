@@ -2,7 +2,6 @@ class OmniauthCallbacksController < ActionController::Base
   def self.provides_callback_for(provider)
     class_eval %Q{
       def #{provider}
-        Rails.logger.ap env["omniauth.auth"]
         @user = User.find_for_oauth(env["omniauth.auth"], current_user)
 
         if @user.persisted?

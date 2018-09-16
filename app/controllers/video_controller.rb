@@ -47,8 +47,6 @@ class VideoController < ApplicationController
         browser.close
         id = href.split('.').last.split('&').first
         response = open("https://graph.facebook.com/#{id}?access_token=#{fb_provider.token}&fields=id,name,picture").read
-        Rails.logger.ap JSON.parse(response)
-
       end
     end
   end
