@@ -439,11 +439,12 @@ DEPENDENCIES
   rails_12factor
   rest-client
   rspec-rails (~> 3.0)
-  sass-rails (~> 5.0)
+  sass-rails
   sdoc (~> 0.4.0)
   select2-rails (= 3.5.9.1)
   simple_form
   spring
+  sprockets
   table_print
   thin
   turbolinks
