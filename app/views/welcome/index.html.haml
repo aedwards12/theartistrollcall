@@ -26,7 +26,7 @@
   - @newest_videos.each do |vid|
     .small-3.columns.left.transparent-box.spacing
       .flex-video{id: "flex-video-#{vid.id}"}
-        %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+        %iframe{ :width=>"196", :height=>"110", :src=>"https://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
       = link_to video_path(vid), class: 'button video-button' do
         = fa_icon 'youtube-play'
         Watch & Discover

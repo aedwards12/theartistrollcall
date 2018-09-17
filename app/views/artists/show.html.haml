@@ -30,7 +30,7 @@
         - vid = a_v.video
         .columns.small-12.medium-3.large-3.transparent-box.spacing{class: ( av_last == a_v ? "end" : "")}
           .flex-video{id: "flex-video-#{vid.id}"}
-            %iframe{ :width=>"196", :height=>"110", :src=>"http://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
+            %iframe{ :width=>"196", :height=>"110", :src=>"https://www.youtube.com/embed/#{vid.url}", :frameborder=>"0"}
 
           = link_to video_path(vid), class: 'button video-button' do
             = fa_icon 'youtube-play'
